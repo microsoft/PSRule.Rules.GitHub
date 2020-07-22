@@ -1,0 +1,7 @@
+
+.vs/
+reports/
+out/
+**/bin/
+**/obj/
+*.zip
