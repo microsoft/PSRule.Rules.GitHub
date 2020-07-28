@@ -79,6 +79,8 @@ stages:
 - stage: Analysis
   displayName: Analysis
   dependsOn: []
+  variables:
+    skipComponentGovernanceDetection: 'true'
   jobs:
   - job:
     pool:
@@ -124,6 +126,8 @@ stages:
 # Test pipeline
 - stage: Test
   dependsOn: Build
+  variables:
+    skipComponentGovernanceDetection: 'true'
   jobs:
 
   - template: jobs/test.yaml
@@ -173,6 +177,8 @@ stages:
   displayName: Release
   dependsOn: [ 'Test', 'Analysis' ]
   condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/v0.'))
+  variables:
+    skipComponentGovernanceDetection: 'true'
   jobs:
   - job:
     displayName: Live
