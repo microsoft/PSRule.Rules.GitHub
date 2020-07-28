@@ -1,0 +1,26 @@
+#
+# PSRule for GitHub
+#
+
+info:
+  name: PSRule.Rules.GitHub
+  description: |
+    A suite of rules to validate GitHub repositories using PSRule.
+  url: https://github.com/BernieWhite/PSRule.Rules.GitHub
+
+repository:
+  type: git
+  url: https://github.com/BernieWhite/PSRule.Rules.GitHub.git
+
+bugs:
+  url: https://github.com/BernieWhite/PSRule.Rules.GitHub/issues
+
+modules:
+  PSRule: ^0.18.1
+
+tasks:
+  clear:
+    steps:
+      - gitPrune:
+          name: origin
+          removeGone: true

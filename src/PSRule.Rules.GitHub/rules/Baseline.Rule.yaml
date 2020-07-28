@@ -1,0 +1,9 @@
+
+---
+# Synopsis: The default GitHub baseline
+kind: Baseline
+metadata:
+  name: GitHub
+spec:
+  configuration:
+    GitHub_BranchNameFormat: ''

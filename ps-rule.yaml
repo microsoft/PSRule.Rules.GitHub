@@ -1,0 +1,15 @@
+# PSRule options for QA
+
+binding:
+  targetName:
+  - RuleName
+  - FullName
+
+output:
+  culture:
+  - en-US
+
+configuration:
+  REPOS_CodeFile_Header: |-
+    Copyright (c) Microsoft Corporation.
+    Licensed under the MIT License.
