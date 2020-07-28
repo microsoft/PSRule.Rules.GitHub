@@ -36,11 +36,6 @@ This project is to be considered a proof-of-concept and not a supported product.
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Resources\Diagnostics.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Diagnostics.resx</DependentUpon>
-    </Compile>
     <Compile Update="Resources\PSRuleResources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -49,10 +44,6 @@ This project is to be considered a proof-of-concept and not a supported product.
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Resources\Diagnostics.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Diagnostics.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Update="Resources\PSRuleResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>PSRuleResources.Designer.cs</LastGenOutput>
