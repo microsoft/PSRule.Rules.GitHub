@@ -9,6 +9,11 @@ output:
   culture:
   - en-US
 
+suppression:
+  OpenSource.License:
+  # Dynamically generated
+  - '/github/workspace/src/PSRule.Rules.GitHub/Resources/PSRuleResources.Designer.cs'
+
 configuration:
   REPOS_CodeFile_Header: |-
     Copyright (c) Microsoft Corporation.

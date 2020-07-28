@@ -61,87 +61,6 @@ namespace PSRule.Rules.GitHub.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Failed to parse expression. The expression may not be valid. Expression: &quot;{0}&quot;.
-        /// </summary>
-        internal static string ExpressionInvalid {
-            get {
-                return ResourceManager.GetString("ExpressionInvalid", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The specified parameter is not a valid integer..
-        /// </summary>
-        internal static string FunctionInvalidInteger {
-            get {
-                return ResourceManager.GetString("FunctionInvalidInteger", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The specified parameter is not a valid string..
-        /// </summary>
-        internal static string FunctionInvalidString {
-            get {
-                return ResourceManager.GetString("FunctionInvalidString", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The function &quot;{0}&quot; was not found..
-        /// </summary>
-        internal static string FunctionNotFound {
-            get {
-                return ResourceManager.GetString("FunctionNotFound", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The parameter file &apos;{0}&apos; does not contain a metadata property..
-        /// </summary>
-        internal static string MetadataNotFound {
-            get {
-                return ResourceManager.GetString("MetadataNotFound", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The number of resource segments needs to match the provided resource type..
-        /// </summary>
-        internal static string MismatchingResourceSegments {
-            get {
-                return ResourceManager.GetString("MismatchingResourceSegments", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Unable to find the specified parameter file &apos;{0}&apos;..
-        /// </summary>
-        internal static string ParameterFileNotFound {
-            get {
-                return ResourceManager.GetString("ParameterFileNotFound", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The parameter named &apos;{0}&apos; was not set or a defaultValue was defined..
-        /// </summary>
-        internal static string ParameterNotFound {
-            get {
-                return ResourceManager.GetString("ParameterNotFound", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The template file &apos;{0}&apos; must be within the current working directory..
-        /// </summary>
-        internal static string PathTraversal {
-            get {
-                return ResourceManager.GetString("PathTraversal", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Read JSON failed..
         /// </summary>
         internal static string ReadJsonFailed {
@@ -174,51 +93,6 @@ namespace PSRule.Rules.GitHub.Resources {
         internal static string ShouldWriteFile {
             get {
                 return ResourceManager.GetString("ShouldWriteFile", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Unable to find the specified template file &apos;{0}&apos;..
-        /// </summary>
-        internal static string TemplateFileNotFound {
-            get {
-                return ResourceManager.GetString("TemplateFileNotFound", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Unable to find template referenced within parameter file &apos;{0}&apos;..
-        /// </summary>
-        internal static string TemplateFileReferenceNotFound {
-            get {
-                return ResourceManager.GetString("TemplateFileReferenceNotFound", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The parameter file &apos;{0}&apos; does not reference a linked template..
-        /// </summary>
-        internal static string TemplateLinkNotFound {
-            get {
-                return ResourceManager.GetString("TemplateLinkNotFound", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The template parameter &apos;{0}&apos; does not use the required format..
-        /// </summary>
-        internal static string TemplateParameterInvalid {
-            get {
-                return ResourceManager.GetString("TemplateParameterInvalid", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The variable named &apos;{0}&apos; was not defined in the template..
-        /// </summary>
-        internal static string VariableNotFound {
-            get {
-                return ResourceManager.GetString("VariableNotFound", resourceCulture);
             }
         }
     }
