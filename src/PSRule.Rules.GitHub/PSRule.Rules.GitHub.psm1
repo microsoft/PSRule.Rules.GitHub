@@ -2,7 +2,7 @@
 # Licensed under the MIT License.
 
 #
-# PSRule.Rules.Azure module
+# PSRule.Rules.GitHub module
 #
 
 Set-StrictMode -Version latest;
