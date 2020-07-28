@@ -95,7 +95,6 @@ AliasesToExport = @()
 
 # Private data to pass to the module specified in RootModule/ModuleToProcess. This may also contain a PSData hashtable with additional module metadata used by PowerShell.
 PrivateData = @{
-
     PSData = @{
 
         # Tags applied to this module. These help with module discovery in online galleries.
@@ -112,9 +111,7 @@ PrivateData = @{
 
         # ReleaseNotes of this module
         ReleaseNotes = 'https://github.com/Microsoft/PSRule.Rules.GitHub/blob/master/CHANGELOG.md'
-
     } # End of PSData hashtable
-
 } # End of PrivateData hashtable
 
 # HelpInfo URI of this module
@@ -124,4 +121,3 @@ PrivateData = @{
 # DefaultCommandPrefix = ''
 
 }
-

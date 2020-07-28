@@ -7,4 +7,4 @@
 . ./.azure-pipelines/pipeline-deps.ps1
 Invoke-Build Test -AssertStyle Client
 
-Write-Host 'If no build errors occurred. The module has been saved to out/modules/PSRule.Rules.Azure'
+Write-Host 'If no build errors occurred. The module has been saved to out/modules/PSRule.Rules.GitHub'
