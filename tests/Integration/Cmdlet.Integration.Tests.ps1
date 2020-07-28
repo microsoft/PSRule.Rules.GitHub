@@ -2,7 +2,7 @@
 # Licensed under the MIT License.
 
 #
-# Unit tests for module cmdlets
+# Integration tests for module cmdlets
 #
 
 [CmdletBinding()]
