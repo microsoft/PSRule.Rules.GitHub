@@ -1,0 +1,1181 @@
+[
+    {
+        "Branches": [
+            {
+                "Type": "api.github.com/repos/branches",
+                "Name": "gh-pages",
+                "BranchName": "gh-pages",
+                "RepositoryName": "org/repository-A",
+                "Protection": {
+                    "Enabled": true,
+                    "EnforceAdmins": false
+                },
+                "Status": [
+                    {
+                        "Name": "Page Build",
+                        "Status": "completed",
+                        "Conclusion": "success"
+                    }
+                ]
+            },
+            {
+                "Type": "api.github.com/repos/branches",
+                "Name": "main",
+                "BranchName": "main",
+                "RepositoryName": "org/repository-A",
+                "Protection": {
+                    "Enabled": true,
+                    "EnforceAdmins": true,
+                    "RequireUpToDate": true,
+                    "RequireStatusChecks": [
+                        "Check-CI",
+                        "license/cla"
+                    ]
+                },
+                "Status": [
+                    {
+                        "Name": "Check-CI",
+                        "Status": "completed",
+                        "Conclusion": "success"
+                    },
+                    {
+                        "Name": "Check-CI (Build Module)",
+                        "Status": "completed",
+                        "Conclusion": "success"
+                    },
+                    {
+                        "Name": "Check-CI (Analysis Secret scan)",
+                        "Status": "completed",
+                        "Conclusion": "success"
+                    },
+                    {
+                        "Name": "Check-CI (Analysis SonarCloud)",
+                        "Status": "completed",
+                        "Conclusion": "success"
+                    }
+                ]
+            },
+            {
+                "Type": "api.github.com/repos/branches",
+                "Name": "master",
+                "BranchName": "master",
+                "RepositoryName": "org/repository-A",
+                "Protection": {
+                    "Enabled": false
+                },
+                "Status": [
+                    {
+                        "Name": "Check-CI",
+                        "Status": "completed",
+                        "Conclusion": "success"
+                    },
+                    {
+                        "Name": "Check-CI (Build Module)",
+                        "Status": "completed",
+                        "Conclusion": "success"
+                    },
+                    {
+                        "Name": "Check-CI (Analysis Secret scan)",
+                        "Status": "completed",
+                        "Conclusion": "success"
+                    },
+                    {
+                        "Name": "Check-CI (Analysis SonarCloud)",
+                        "Status": "completed",
+                        "Conclusion": "success"
+                    }
+                ]
+            }
+        ],
+        "Labels": [
+            {
+                "Name": "bug",
+                "Description": "Something isn't working",
+                "Color": "ee0701",
+                "Default": true
+            },
+            {
+                "Name": "ci-quality",
+                "Description": "Issues that affect CI/ CD processes",
+                "Color": "8f6dc4",
+                "Default": false
+            },
+            {
+                "Name": "dependencies",
+                "Description": "Changes for a dependency update",
+                "Color": "0366d6",
+                "Default": false
+            },
+            {
+                "Name": "deprecation",
+                "Description": "Clean up deprecated functionality",
+                "Color": "ea9ab0",
+                "Default": false
+            },
+            {
+                "Name": "documentation",
+                "Description": "Improvements or additions to documentation",
+                "Color": "2fb2b5",
+                "Default": true
+            },
+            {
+                "Name": "duplicate",
+                "Description": "This issue or pull request already exists",
+                "Color": "cfd3d7",
+                "Default": true
+            },
+            {
+                "Name": "enhancement",
+                "Description": "New feature or request",
+                "Color": "84b6eb",
+                "Default": true
+            },
+            {
+                "Name": "good first issue",
+                "Description": "Good for newcomers",
+                "Color": "128A0C",
+                "Default": true
+            },
+            {
+                "Name": "help wanted",
+                "Description": "Extra attention is needed",
+                "Color": "128A0C",
+                "Default": true
+            },
+            {
+                "Name": "hot",
+                "Description": "A frequently raised issue",
+                "Color": "b60205",
+                "Default": false
+            },
+            {
+                "Name": "incubate",
+                "Description": "Categorizes an issue that requires further incubation.",
+                "Color": "780bbc",
+                "Default": false
+            },
+            {
+                "Name": "module",
+                "Description": "Change to module",
+                "Color": "4173a3",
+                "Default": false
+            },
+            {
+                "Name": "question",
+                "Description": "Further information is requested",
+                "Color": "cc317c",
+                "Default": true
+            },
+            {
+                "Name": "repo",
+                "Description": "Change to core repository files",
+                "Color": "ee0701",
+                "Default": false
+            },
+            {
+                "Name": "tests",
+                "Description": "Change to unit tests",
+                "Color": "4173a3",
+                "Default": false
+            },
+            {
+                "Name": "wontfix",
+                "Description": "An issue that won't be fixed but is preserved for tracking in external repositories",
+                "Color": "ffffff",
+                "Default": true
+            }
+        ],
+        "Milestones": [
+            {
+                "Number": 21,
+                "Title": "v1.0.0",
+                "Description": "",
+                "State": "open"
+            },
+            {
+                "Number": 22,
+                "Title": "v0.19.0",
+                "Description": "",
+                "State": "open"
+            },
+            {
+                "Number": 20,
+                "Title": "v0.20.0",
+                "Description": "",
+                "State": "open"
+            }
+        ],
+        "Releases": [
+            {
+                "Name": "v0.19.0-B2007023",
+                "Prerelease": true,
+                "TagName": "v0.19.0-B2007023"
+            },
+            {
+                "Name": "v0.18.1",
+                "Prerelease": false,
+                "TagName": "v0.18.1"
+            },
+            {
+                "Name": "v0.19.0-B2006027",
+                "Prerelease": true,
+                "TagName": "v0.19.0-B2006027"
+            },
+            {
+                "Name": "v0.19.0-B2006018",
+                "Prerelease": true,
+                "TagName": "v0.19.0-B2006018"
+            },
+            {
+                "Name": "v0.18.0",
+                "Prerelease": false,
+                "TagName": "v0.18.0"
+            },
+            {
+                "Name": "v0.18.0-B2005015",
+                "Prerelease": true,
+                "TagName": "v0.18.0-B2005015"
+            },
+            {
+                "Name": "v0.17.0",
+                "Prerelease": false,
+                "TagName": "v0.17.0"
+            },
+            {
+                "Name": "v0.17.0-B2005010",
+                "Prerelease": true,
+                "TagName": "v0.17.0-B2005010"
+            },
+            {
+                "Name": "v0.16.0",
+                "Prerelease": false,
+                "TagName": "v0.16.0"
+            },
+            {
+                "Name": "v0.16.0-B2003027",
+                "Prerelease": true,
+                "TagName": "v0.16.0-B2003027"
+            },
+            {
+                "Name": "v0.16.0-B2003022",
+                "Prerelease": true,
+                "TagName": "v0.16.0-B2003022"
+            },
+            {
+                "Name": "v0.15.0",
+                "Prerelease": false,
+                "TagName": "v0.15.0"
+            },
+            {
+                "Name": "v0.15.0-B2002031",
+                "Prerelease": true,
+                "TagName": "v0.15.0-B2002031"
+            },
+            {
+                "Name": "v0.15.0-B2002019",
+                "Prerelease": true,
+                "TagName": "v0.15.0-B2002019"
+            },
+            {
+                "Name": "v0.15.0-B2002012",
+                "Prerelease": true,
+                "TagName": "v0.15.0-B2002012"
+            },
+            {
+                "Name": "v0.15.0-B2002005",
+                "Prerelease": true,
+                "TagName": "v0.15.0-B2002005"
+            },
+            {
+                "Name": "v0.14.0",
+                "Prerelease": false,
+                "TagName": "v0.14.0"
+            },
+            {
+                "Name": "v0.14.0-B2002003",
+                "Prerelease": true,
+                "TagName": "v0.14.0-B2002003"
+            },
+            {
+                "Name": "v0.14.0-B2001020",
+                "Prerelease": true,
+                "TagName": "v0.14.0-B2001020"
+            },
+            {
+                "Name": "v0.13.0",
+                "Prerelease": false,
+                "TagName": "v0.13.0"
+            },
+            {
+                "Name": "v0.13.0-B2001013",
+                "Prerelease": true,
+                "TagName": "v0.13.0-B2001013"
+            },
+            {
+                "Name": "v0.13.0-B1912043",
+                "Prerelease": true,
+                "TagName": "v0.13.0-B1912043"
+            },
+            {
+                "Name": "v0.13.0-B1912027",
+                "Prerelease": true,
+                "TagName": "v0.13.0-B1912027"
+            },
+            {
+                "Name": "v0.13.0-B1912012",
+                "Prerelease": true,
+                "TagName": "v0.13.0-B1912012"
+            },
+            {
+                "Name": "v0.13.0-B1912005",
+                "Prerelease": true,
+                "TagName": "v0.13.0-B1912005"
+            },
+            {
+                "Name": "v0.12.0",
+                "Prerelease": false,
+                "TagName": "v0.12.0"
+            },
+            {
+                "Name": "v0.12.0-B1912007",
+                "Prerelease": true,
+                "TagName": "v0.12.0-B1912007"
+            },
+            {
+                "Name": "v0.12.0-B1912002",
+                "Prerelease": true,
+                "TagName": "v0.12.0-B1912002"
+            },
+            {
+                "Name": "v0.12.0-B1911013",
+                "Prerelease": true,
+                "TagName": "v0.12.0-B1911013"
+            },
+            {
+                "Name": "v0.11.0",
+                "Prerelease": false,
+                "TagName": "v0.11.0"
+            },
+            {
+                "Name": "v0.11.0-B1911002",
+                "Prerelease": true,
+                "TagName": "v0.11.0-B1911002"
+            },
+            {
+                "Name": "v0.11.0-B1910014",
+                "Prerelease": true,
+                "TagName": "v0.11.0-B1910014"
+            },
+            {
+                "Name": "v0.10.0",
+                "Prerelease": false,
+                "TagName": "v0.10.0"
+            },
+            {
+                "Name": "v0.10.0-B1910036",
+                "Prerelease": true,
+                "TagName": "v0.10.0-B1910036"
+            },
+            {
+                "Name": "v0.10.0-B1910025",
+                "Prerelease": true,
+                "TagName": "v0.10.0-B1910025"
+            },
+            {
+                "Name": "v0.10.0-B1910011",
+                "Prerelease": true,
+                "TagName": "v0.10.0-B1910011"
+            },
+            {
+                "Name": "v0.9.0",
+                "Prerelease": false,
+                "TagName": "v0.9.0"
+            },
+            {
+                "Name": "v0.9.0-B190905",
+                "Prerelease": true,
+                "TagName": "v0.9.0-B190905"
+            },
+            {
+                "Name": "v0.9.0-B190819",
+                "Prerelease": true,
+                "TagName": "v0.9.0-B190819"
+            },
+            {
+                "Name": "v0.9.0-B190810",
+                "Prerelease": true,
+                "TagName": "v0.9.0-B190810"
+            },
+            {
+                "Name": "v0.8.0",
+                "Prerelease": false,
+                "TagName": "v0.8.0"
+            },
+            {
+                "Name": "v0.8.0-B190806",
+                "Prerelease": true,
+                "TagName": "v0.8.0-B190806"
+            },
+            {
+                "Name": "v0.8.0-B190742",
+                "Prerelease": true,
+                "TagName": "v0.8.0-B190742"
+            },
+            {
+                "Name": "v0.8.0-B190716",
+                "Prerelease": true,
+                "TagName": "v0.8.0-B190716"
+            },
+            {
+                "Name": "v0.8.0-B190708",
+                "Prerelease": true,
+                "TagName": "v0.8.0-B190708"
+            },
+            {
+                "Name": "v0.7.0",
+                "Prerelease": false,
+                "TagName": "v0.7.0"
+            },
+            {
+                "Name": "v0.7.0-B190664",
+                "Prerelease": true,
+                "TagName": "v0.7.0-B190664"
+            },
+            {
+                "Name": "v0.7.0-B190652",
+                "Prerelease": true,
+                "TagName": "v0.7.0-B190652"
+            },
+            {
+                "Name": "v0.7.0-B190633",
+                "Prerelease": true,
+                "TagName": "v0.7.0-B190633"
+            },
+            {
+                "Name": "v0.7.0-B190624",
+                "Prerelease": true,
+                "TagName": "v0.7.0-B190624"
+            },
+            {
+                "Name": "v0.7.0-B190613",
+                "Prerelease": true,
+                "TagName": "v0.7.0-B190613"
+            },
+            {
+                "Name": "v0.6.0",
+                "Prerelease": false,
+                "TagName": "v0.6.0"
+            },
+            {
+                "Name": "v0.6.0-B190627",
+                "Prerelease": true,
+                "TagName": "v0.6.0-B190627"
+            },
+            {
+                "Name": "v0.6.0-B190614",
+                "Prerelease": true,
+                "TagName": "v0.6.0-B190614"
+            },
+            {
+                "Name": "v0.6.0-B190514",
+                "Prerelease": true,
+                "TagName": "v0.6.0-B190514"
+            },
+            {
+                "Name": "v0.5.0",
+                "Prerelease": false,
+                "TagName": "v0.5.0"
+            },
+            {
+                "Name": "v0.5.0-B190423",
+                "Prerelease": true,
+                "TagName": "v0.5.0-B190423"
+            },
+            {
+                "Name": "v0.5.0-B190405",
+                "Prerelease": true,
+                "TagName": "v0.5.0-B190405"
+            },
+            {
+                "Name": "v0.4.0",
+                "Prerelease": false,
+                "TagName": "v0.4.0"
+            },
+            {
+                "Name": "v0.4.0-B190328",
+                "Prerelease": true,
+                "TagName": "v0.4.0-B190328"
+            },
+            {
+                "Name": "v0.4.0-B190320",
+                "Prerelease": true,
+                "TagName": "v0.4.0-B190320"
+            },
+            {
+                "Name": "v0.4.0-B190313",
+                "Prerelease": true,
+                "TagName": "v0.4.0-B190313"
+            },
+            {
+                "Name": "v0.3.0",
+                "Prerelease": false,
+                "TagName": "v0.3.0"
+            },
+            {
+                "Name": "v0.3.0-B190231",
+                "Prerelease": true,
+                "TagName": "v0.3.0-B190231"
+            },
+            {
+                "Name": "v0.3.0-B190224",
+                "Prerelease": true,
+                "TagName": "v0.3.0-B190224"
+            },
+            {
+                "Name": "v0.3.0-B190208",
+                "Prerelease": true,
+                "TagName": "v0.3.0-B190208"
+            },
+            {
+                "Name": "v0.2.0",
+                "Prerelease": false,
+                "TagName": "v0.2.0"
+            },
+            {
+                "Name": "v0.2.0-B190121",
+                "Prerelease": true,
+                "TagName": "v0.2.0-B190121"
+            },
+            {
+                "Name": "v0.2.0-B190113",
+                "Prerelease": true,
+                "TagName": "v0.2.0-B190113"
+            },
+            {
+                "Name": "0.2.0-B190105",
+                "Prerelease": true,
+                "TagName": "v0.2.0-B190105"
+            },
+            {
+                "Name": "v0.1.0",
+                "Prerelease": false,
+                "TagName": "v0.1.0"
+            },
+            {
+                "Name": "v0.1.0-B181235",
+                "Prerelease": true,
+                "TagName": "v0.1.0-B181235"
+            },
+            {
+                "Name": "v0.1.0-B181222",
+                "Prerelease": true,
+                "TagName": "v0.1.0-B181222"
+            },
+            {
+                "Name": "v0.1.0-B181212",
+                "Prerelease": true,
+                "TagName": "v0.1.0-B181212"
+            }
+        ],
+        "Tags": [
+            {
+                "Name": "v0.19.0-B2007023"
+            },
+            {
+                "Name": "v0.19.0-B2006027"
+            },
+            {
+                "Name": "v0.19.0-B2006018"
+            },
+            {
+                "Name": "v0.18.1"
+            },
+            {
+                "Name": "v0.18.0"
+            },
+            {
+                "Name": "v0.18.0-B2005015"
+            },
+            {
+                "Name": "v0.17.0"
+            },
+            {
+                "Name": "v0.17.0-B2005010"
+            },
+            {
+                "Name": "v0.16.0"
+            },
+            {
+                "Name": "v0.16.0-B2003027"
+            },
+            {
+                "Name": "v0.16.0-B2003022"
+            },
+            {
+                "Name": "v0.15.0"
+            },
+            {
+                "Name": "v0.15.0-B2002031"
+            },
+            {
+                "Name": "v0.15.0-B2002019"
+            },
+            {
+                "Name": "v0.15.0-B2002012"
+            },
+            {
+                "Name": "v0.15.0-B2002005"
+            },
+            {
+                "Name": "v0.14.0"
+            },
+            {
+                "Name": "v0.14.0-B2002003"
+            },
+            {
+                "Name": "v0.14.0-B2001020"
+            },
+            {
+                "Name": "v0.13.0"
+            },
+            {
+                "Name": "v0.13.0-B2001013"
+            },
+            {
+                "Name": "v0.13.0-B1912043"
+            },
+            {
+                "Name": "v0.13.0-B1912027"
+            },
+            {
+                "Name": "v0.13.0-B1912012"
+            },
+            {
+                "Name": "v0.13.0-B1912005"
+            },
+            {
+                "Name": "v0.12.0"
+            },
+            {
+                "Name": "v0.12.0-B1912007"
+            },
+            {
+                "Name": "v0.12.0-B1912002"
+            },
+            {
+                "Name": "v0.12.0-B1911013"
+            },
+            {
+                "Name": "v0.11.0"
+            },
+            {
+                "Name": "v0.11.0-B1911002"
+            },
+            {
+                "Name": "v0.11.0-B1910014"
+            },
+            {
+                "Name": "v0.10.0"
+            },
+            {
+                "Name": "v0.10.0-B1910036"
+            },
+            {
+                "Name": "v0.10.0-B1910025"
+            },
+            {
+                "Name": "v0.10.0-B1910011"
+            },
+            {
+                "Name": "v0.9.0"
+            },
+            {
+                "Name": "v0.9.0-B190905"
+            },
+            {
+                "Name": "v0.9.0-B190819"
+            },
+            {
+                "Name": "v0.9.0-B190810"
+            },
+            {
+                "Name": "v0.8.0"
+            },
+            {
+                "Name": "v0.8.0-B190806"
+            },
+            {
+                "Name": "v0.8.0-B190742"
+            },
+            {
+                "Name": "v0.8.0-B190716"
+            },
+            {
+                "Name": "v0.8.0-B190708"
+            },
+            {
+                "Name": "v0.7.0"
+            },
+            {
+                "Name": "v0.7.0-B190664"
+            },
+            {
+                "Name": "v0.7.0-B190652"
+            },
+            {
+                "Name": "v0.7.0-B190633"
+            },
+            {
+                "Name": "v0.7.0-B190624"
+            },
+            {
+                "Name": "v0.7.0-B190613"
+            },
+            {
+                "Name": "v0.6.0"
+            },
+            {
+                "Name": "v0.6.0-B190627"
+            },
+            {
+                "Name": "v0.6.0-B190614"
+            },
+            {
+                "Name": "v0.6.0-B190514"
+            },
+            {
+                "Name": "v0.5.0"
+            },
+            {
+                "Name": "v0.5.0-B190423"
+            },
+            {
+                "Name": "v0.5.0-B190405"
+            },
+            {
+                "Name": "v0.4.0"
+            },
+            {
+                "Name": "v0.4.0-B190328"
+            },
+            {
+                "Name": "v0.4.0-B190320"
+            },
+            {
+                "Name": "v0.4.0-B190313"
+            },
+            {
+                "Name": "v0.3.0"
+            },
+            {
+                "Name": "v0.3.0-B190231"
+            },
+            {
+                "Name": "v0.3.0-B190224"
+            },
+            {
+                "Name": "v0.3.0-B190208"
+            },
+            {
+                "Name": "v0.2.0"
+            },
+            {
+                "Name": "v0.2.0-B190121"
+            },
+            {
+                "Name": "v0.2.0-B190113"
+            },
+            {
+                "Name": "v0.2.0-B190105"
+            },
+            {
+                "Name": "v0.1.0"
+            },
+            {
+                "Name": "v0.1.0-B181235"
+            },
+            {
+                "Name": "v0.1.0-B181222"
+            },
+            {
+                "Name": "v0.1.0-B181212"
+            }
+        ],
+        "Type": "api.github.com/repos",
+        "Owner": "org",
+        "Name": "repository-A",
+        "FullName": "org/repository-A",
+        "RepositoryName": "org/repository-A",
+        "Description": "Validate objects using PowerShell rules.",
+        "Private": false,
+        "Fork": false,
+        "Archived": false,
+        "DefaultBranch": "main",
+        "License": "NOASSERTION",
+        "HtmlUrl": "https://github.com/org/repository-A",
+        "Homepage": "https://org.github.io/repository-A/",
+        "Language": "C#",
+        "AllowRebaseMerge": false,
+        "AllowSquashMerge": true,
+        "AllowMergeCommit": false,
+        "HasIssues": true,
+        "HasWiki": false,
+        "HasDownloads": true,
+        "HasPages": true,
+        "CommunityFiles": [
+            "CODE_OF_CONDUCT.md",
+            "CONTRIBUTING.md",
+            "LICENSE.txt",
+            "README.md",
+            "SECURITY.md",
+            ".github/CODEOWNERS",
+            ".github/PULL_REQUEST_TEMPLATE.md",
+            ".github/ISSUE_TEMPLATE/bug_report.md",
+            ".github/ISSUE_TEMPLATE/feature_request.md"
+        ]
+    },
+    {
+        "Type": "api.github.com/repos/branches",
+        "Name": "gh-pages",
+        "BranchName": "gh-pages",
+        "RepositoryName": "org/repository-A",
+        "Protection": {
+            "Enabled": true,
+            "EnforceAdmins": false
+        },
+        "Status": [
+            {
+                "Name": "Page Build",
+                "Status": "completed",
+                "Conclusion": "success"
+            }
+        ]
+    },
+    {
+        "Type": "api.github.com/repos/branches",
+        "Name": "main",
+        "BranchName": "main",
+        "RepositoryName": "org/repository-A",
+        "Protection": {
+            "Enabled": true,
+            "EnforceAdmins": true,
+            "RequireUpToDate": true,
+            "RequireStatusChecks": [
+                "Check-CI",
+                "license/cla"
+            ]
+        },
+        "Status": [
+            {
+                "Name": "Check-CI",
+                "Status": "completed",
+                "Conclusion": "success"
+            },
+            {
+                "Name": "Check-CI (Build Module)",
+                "Status": "completed",
+                "Conclusion": "success"
+            },
+            {
+                "Name": "Check-CI (Analysis Secret scan)",
+                "Status": "completed",
+                "Conclusion": "success"
+            },
+            {
+                "Name": "Check-CI (Analysis SonarCloud)",
+                "Status": "completed",
+                "Conclusion": "success"
+            }
+        ]
+    },
+    {
+        "Type": "api.github.com/repos/branches",
+        "Name": "master",
+        "BranchName": "master",
+        "RepositoryName": "org/repository-A",
+        "Protection": {
+            "Enabled": false
+        },
+        "Status": [
+            {
+                "Name": "Check-CI",
+                "Status": "completed",
+                "Conclusion": "success"
+            },
+            {
+                "Name": "Check-CI (Build Module)",
+                "Status": "completed",
+                "Conclusion": "success"
+            },
+            {
+                "Name": "Check-CI (Analysis Secret scan)",
+                "Status": "completed",
+                "Conclusion": "success"
+            },
+            {
+                "Name": "Check-CI (Analysis SonarCloud)",
+                "Status": "completed",
+                "Conclusion": "success"
+            }
+        ]
+    },
+    {
+        "Type": "api.github.com/repos/branches",
+        "Name": "users/username/description",
+        "BranchName": "users/username/description",
+        "RepositoryName": "org/repository-n",
+        "Protection": {
+            "Enabled": false
+        },
+        "Status": [
+            {
+                "Name": "Check-CI",
+                "Status": "completed",
+                "Conclusion": "success"
+            },
+            {
+                "Name": "Check-CI (Build Module)",
+                "Status": "completed",
+                "Conclusion": "success"
+            },
+            {
+                "Name": "Check-CI (Analysis Secret scan)",
+                "Status": "completed",
+                "Conclusion": "success"
+            },
+            {
+                "Name": "Check-CI (Analysis SonarCloud)",
+                "Status": "completed",
+                "Conclusion": "success"
+            }
+        ]
+    },
+    {
+        "Type": "api.github.com/repos/branches",
+        "Name": "shared/description",
+        "BranchName": "shared/description",
+        "RepositoryName": "org/repository-n",
+        "Protection": {
+            "Enabled": false
+        },
+        "Status": []
+    },
+    {
+        "Type": "api.github.com/repos/branches",
+        "Name": "hotfix-description",
+        "BranchName": "hotfix-description",
+        "RepositoryName": "org/repository-n",
+        "Protection": {
+            "Enabled": false
+        },
+        "Status": []
+    },
+    {
+        "Branches": [
+            {
+                "Type": "api.github.com/repos/branches",
+                "Name": "main",
+                "BranchName": "main",
+                "RepositoryName": "org/repository-B",
+                "Protection": {
+                    "Enabled": false
+                },
+                "Status": []
+            }
+        ],
+        "Labels": [
+            {
+                "Name": "bug",
+                "Description": "Something isn't working",
+                "Color": "ee0701",
+                "Default": true
+            },
+            {
+                "Name": "ci-quality",
+                "Description": "Issues that affect CI/ CD processes",
+                "Color": "8f6dc4",
+                "Default": false
+            },
+            {
+                "Name": "dependencies",
+                "Description": "Changes for a dependency update",
+                "Color": "0366d6",
+                "Default": false
+            },
+            {
+                "Name": "deprecation",
+                "Description": "Clean up deprecated functionality",
+                "Color": "ea9ab0",
+                "Default": false
+            },
+            {
+                "Name": "documentation",
+                "Description": "Improvements or additions to documentation",
+                "Color": "2fb2b5",
+                "Default": true
+            },
+            {
+                "Name": "duplicate",
+                "Description": "This issue or pull request already exists",
+                "Color": "cfd3d7",
+                "Default": true
+            },
+            {
+                "Name": "enhancement",
+                "Description": "New feature or request",
+                "Color": "84b6eb",
+                "Default": true
+            },
+            {
+                "Name": "good first issue",
+                "Description": "Good for newcomers",
+                "Color": "128A0C",
+                "Default": true
+            },
+            {
+                "Name": "help wanted",
+                "Description": "Extra attention is needed",
+                "Color": "128A0C",
+                "Default": true
+            },
+            {
+                "Name": "hot",
+                "Description": "A frequently raised issue",
+                "Color": "b60205",
+                "Default": false
+            },
+            {
+                "Name": "incubate",
+                "Description": "Categorizes an issue that requires further incubation.",
+                "Color": "780bbc",
+                "Default": false
+            },
+            {
+                "Name": "module",
+                "Description": "Change to module",
+                "Color": "4173a3",
+                "Default": false
+            },
+            {
+                "Name": "question",
+                "Description": "Further information is requested",
+                "Color": "cc317c",
+                "Default": true
+            },
+            {
+                "Name": "repo",
+                "Description": "Change to core repository files",
+                "Color": "ee0701",
+                "Default": false
+            },
+            {
+                "Name": "tests",
+                "Description": "Change to unit tests",
+                "Color": "4173a3",
+                "Default": false
+            },
+            {
+                "Name": "wontfix",
+                "Description": "An issue that won't be fixed but is preserved for tracking in external repositories",
+                "Color": "ffffff",
+                "Default": true
+            }
+        ],
+        "Milestones": [
+            {
+                "Number": 21,
+                "Title": "v1.0.0",
+                "Description": "",
+                "State": "open"
+            },
+            {
+                "Number": 22,
+                "Title": "v0.19.0",
+                "Description": "",
+                "State": "open"
+            },
+            {
+                "Number": 20,
+                "Title": "v0.20.0",
+                "Description": "",
+                "State": "open"
+            }
+        ],
+        "Releases": [
+            {
+                "Name": "v0.19.0-B2007023",
+                "Prerelease": true,
+                "TagName": "v0.19.0-B2007023"
+            },
+            {
+                "Name": "v0.18.1",
+                "Prerelease": false,
+                "TagName": "v0.18.1"
+            },
+            {
+                "Name": "v0.19.0-B2006027",
+                "Prerelease": true,
+                "TagName": "v0.19.0-B2006027"
+            },
+            {
+                "Name": "v0.19.0-B2006018",
+                "Prerelease": true,
+                "TagName": "v0.19.0-B2006018"
+            },
+            {
+                "Name": "v0.18.0",
+                "Prerelease": false,
+                "TagName": "v0.18.0"
+            }
+        ],
+        "Tags": [
+            {
+                "Name": "v0.19.0-B2007023"
+            },
+            {
+                "Name": "v0.19.0-B2006027"
+            },
+            {
+                "Name": "v0.19.0-B2006018"
+            },
+            {
+                "Name": "v0.18.1"
+            },
+            {
+                "Name": "v0.18.0"
+            }
+        ],
+        "Type": "api.github.com/repos",
+        "Owner": "org",
+        "Name": "repository-B",
+        "FullName": "org/repository-B",
+        "RepositoryName": "org/repository-B",
+        "Description": "Validate objects using PowerShell rules.",
+        "Private": false,
+        "Fork": false,
+        "Archived": false,
+        "DefaultBranch": "main",
+        "License": "NOASSERTION",
+        "HtmlUrl": "https://github.com/org/repository-B",
+        "Homepage": "https://org.github.io/repository-B/",
+        "Language": "C#",
+        "AllowRebaseMerge": false,
+        "AllowSquashMerge": true,
+        "AllowMergeCommit": false,
+        "HasIssues": true,
+        "HasWiki": false,
+        "HasDownloads": true,
+        "HasPages": true,
+        "CommunityFiles": [
+            "CODE_OF_CONDUCT.md",
+            "CONTRIBUTING.md",
+            "LICENSE",
+            "README.md",
+            "SECURITY.md",
+            ".github/CODEOWNERS",
+            ".github/PULL_REQUEST_TEMPLATE.md",
+            ".github/ISSUE_TEMPLATE/bug_report.md",
+            ".github/ISSUE_TEMPLATE/feature_request.md"
+        ]
+    }
+]
