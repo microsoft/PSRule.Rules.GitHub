@@ -69,6 +69,6 @@ This project is [licensed under the MIT License](LICENSE).
 
 [issue]: https://github.com/Microsoft/PSRule.Rules.GitHub/issues
 [install]: docs/scenarios/install-instructions.md
-[ci-badge]: https://dev.azure.com/bewhite/PSRule.Rules.GitHub/_apis/build/status/PSRule.Rules.GitHub-CI?branchName=master
+[ci-badge]: https://dev.azure.com/bewhite/PSRule.Rules.GitHub/_apis/build/status/PSRule.Rules.GitHub-CI?branchName=main
 [module]: https://www.powershellgallery.com/packages/PSRule.Rules.GitHub
 [engine]: https://github.com/Microsoft/PSRule
