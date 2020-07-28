@@ -1,0 +1,9 @@
+
+
+---
+# Synopsis: Configuration for PSRule.Rules.GitHub
+kind: ModuleConfig
+metadata:
+  name: PSRule.Rules.GitHub
+spec: { }
+  
