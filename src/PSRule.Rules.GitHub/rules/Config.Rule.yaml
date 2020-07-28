@@ -5,5 +5,13 @@
 kind: ModuleConfig
 metadata:
   name: PSRule.Rules.GitHub
-spec: { }
-  
+spec:
+  binding:
+    targetName:
+    - Name
+    targetType:
+    - Type
+  configuration:
+    GitHub_BranchName_Format: ''
+    GitHub_BranchName_Disallowed:
+    - master

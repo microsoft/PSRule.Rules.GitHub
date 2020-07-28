@@ -4,6 +4,4 @@
 kind: Baseline
 metadata:
   name: GitHub
-spec:
-  configuration:
-    GitHub_BranchNameFormat: ''
+spec: { }

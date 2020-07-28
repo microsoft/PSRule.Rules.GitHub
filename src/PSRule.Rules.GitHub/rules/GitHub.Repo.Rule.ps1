@@ -9,5 +9,5 @@ Rule 'GitHub.Repo.Protected' -Type 'api.github.com/repos' {
 
 # Synopsis: Has recommended community files for public repositories.
 Rule 'GitHub.Repo.Community' -Type 'api.github.com/repos' -If { !$TargetObject.Private -and !$TargetObject.Fork } {
-    # $TargetObject.CommunityProfile
+    # $Assert.In($TargetObject, 'CommunityFiles', @('README.md'));
 }
