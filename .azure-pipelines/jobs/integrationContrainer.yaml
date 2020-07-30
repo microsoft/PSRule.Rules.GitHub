@@ -36,6 +36,7 @@ jobs:
     displayName: 'Download module'
     inputs:
       artifact: PSRule.Rules.GitHub
+      pipelineId: $(resources.pipeline.CI.pipelineID)
       path: $(Build.SourcesDirectory)/out/modules/PSRule.Rules.GitHub
 
   # Build module

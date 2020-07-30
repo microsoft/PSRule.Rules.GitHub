@@ -31,9 +31,9 @@ stages:
     skipComponentGovernanceDetection: 'true'
   jobs:
 
-  - template: jobs/testContainer.yaml
+  - template: jobs/integrationContainer.yaml
     parameters:
       name: ps_7_ubuntu_18_04
       displayName: 'PowerShell 7.0 - ubuntu-18.04'
       imageName: mcr.microsoft.com/powershell
-      imageTag: 7.0.0-ubuntu-18.04
+      imageTag: 7.0.3-ubuntu-18.04
