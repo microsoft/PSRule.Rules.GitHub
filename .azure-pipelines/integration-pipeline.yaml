@@ -18,11 +18,10 @@ resources:
         - main
 
 # Use build number format, i.e. I0.1.0-B2007001+2007009
-name: $(resources.pipeline.CI.runName)+$(date:yyMM)$(rev:rrr)
+name: I$(date:yyMM)$(rev:rrr)
 
 trigger: none
 pr: none
-
 
 stages:
 
@@ -31,7 +30,6 @@ stages:
   variables:
     skipComponentGovernanceDetection: 'true'
   jobs:
-
   - template: jobs/integrationContainer.yaml
     parameters:
       name: ps_7_ubuntu_18_04

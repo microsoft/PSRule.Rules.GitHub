@@ -26,6 +26,8 @@ jobs:
     PUBLISHRESULTS: ${{ parameters.publishResults }}
     skipComponentGovernanceDetection: true
   steps:
+  - powershell: Out-Host "`#`#vso[build.updatebuildnumber]$(resources.pipeline.CI.runName)+$(Build.BuildNumber)"
+    displayName: 'Update build number'
 
   # Install pipeline dependencies
   - powershell: ./.azure-pipelines/pipeline-deps.ps1
@@ -46,6 +48,8 @@ jobs:
   # Build module
   - powershell: Invoke-Build IntegrationTest -Configuration ${{ parameters.buildConfiguration }} -Build $(Build.BuildNumber)
     displayName: 'Test module'
+    env:
+      GITHUB_TOKEN: $(GITHUB_TOKEN)
 
   # Pester test results
   - task: PublishTestResults@2
