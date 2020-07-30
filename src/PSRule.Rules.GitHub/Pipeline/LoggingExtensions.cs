@@ -1,8 +1,6 @@
 ﻿// Copyright (c) Microsoft Corporation.
 // Licensed under the MIT License.
 
-using PSRule.Rules.GitHub.Resources;
-
 namespace PSRule.Rules.GitHub.Pipeline
 {
     /// <summary>

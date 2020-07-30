@@ -2,7 +2,7 @@
 online version: https://github.com/BernieWhite/PSRule.Rules.GitHub/blob/main/docs/rules/en/GitHub.Branch.Name.md
 ---
 
-# Name of rule
+# Use consistent branch names
 
 ## SYNOPSIS
 

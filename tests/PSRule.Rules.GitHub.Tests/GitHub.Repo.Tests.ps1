@@ -26,15 +26,46 @@ Describe 'GitHub.Repo' -Tag 'Repository' {
 
     Context 'Conditions' {
         $invokeParams = @{
-            Baseline = 'GitHub'
             Module = 'PSRule.Rules.GitHub'
             WarningAction = 'Ignore'
             ErrorAction = 'Stop'
         }
-        $result = Invoke-PSRule @invokeParams -InputPath $dataPath;
+        
 
         It 'GitHub.Repo.Protected' {
-            $filteredResult = $result | Where-Object { $_.RuleName -eq 'GitHub.Repo.Protected' };
+            $filteredResult = Invoke-PSRule @invokeParams -InputPath $dataPath -Name 'GitHub.Repo.Protected';
+
+            # Fail
+            $ruleResult = @($filteredResult | Where-Object { $_.Outcome -eq 'Fail' });
+            $ruleResult | Should -Not -BeNullOrEmpty;
+            $ruleResult.Length | Should -Be 1;
+            $ruleResult.TargetName | Should -BeIn 'org/repository-B';
+
+            # Pass
+            $ruleResult = @($filteredResult | Where-Object { $_.Outcome -eq 'Pass' });
+            $ruleResult | Should -Not -BeNullOrEmpty;
+            $ruleResult.Length | Should -Be 1;
+            $ruleResult.TargetName | Should -BeIn 'org/repository-A';
+        }
+
+        It 'GitHub.Repo.Community' {
+            $filteredResult = Invoke-PSRule @invokeParams -InputPath $dataPath -Name 'GitHub.Repo.Community';
+
+            # Fail
+            $ruleResult = @($filteredResult | Where-Object { $_.Outcome -eq 'Fail' });
+            $ruleResult | Should -Not -BeNullOrEmpty;
+            $ruleResult.Length | Should -Be 1;
+            $ruleResult.TargetName | Should -BeIn 'org/repository-B';
+
+            # Pass
+            $ruleResult = @($filteredResult | Where-Object { $_.Outcome -eq 'Pass' });
+            $ruleResult | Should -Not -BeNullOrEmpty;
+            $ruleResult.Length | Should -Be 1;
+            $ruleResult.TargetName | Should -BeIn 'org/repository-A';
+        }
+
+        It 'GitHub.Repo.CodeOwners' {
+            $filteredResult = Invoke-PSRule @invokeParams -InputPath $dataPath -Name 'GitHub.Repo.CodeOwners';
 
             # Fail
             $ruleResult = @($filteredResult | Where-Object { $_.Outcome -eq 'Fail' });

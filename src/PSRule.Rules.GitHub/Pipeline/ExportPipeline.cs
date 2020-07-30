@@ -2,7 +2,6 @@
 // Licensed under the MIT License.
 
 using PSRule.Rules.GitHub.Configuration;
-using PSRule.Rules.GitHub.Data;
 using PSRule.Rules.GitHub.Pipeline.Output;
 using System;
 using System.Management.Automation;
@@ -41,7 +40,9 @@ namespace PSRule.Rules.GitHub.Pipeline
         {
             if (repository == null)
             {
-                _Repository = new string[] { Environment.GetEnvironmentVariable(GITHUB_REPOSITORY) };
+                if (TryGetEnvironmentVariableString(GITHUB_REPOSITORY, out string repo))
+                    _Repository = new string[] { repo };
+
                 return;
             }
             _Repository = repository;
@@ -133,6 +134,12 @@ namespace PSRule.Rules.GitHub.Pipeline
 
     internal sealed class ExportPipeline : PipelineBase
     {
+        private const string PROPERTY_BRANCHES = "Branches";
+        private const string PROPERTY_LABELS = "Labels";
+        private const string PROPERTY_MILESTONES = "Milestones";
+        private const string PROPERTY_RELEASES = "Releases";
+        private const string PROPERTY_TAGS = "Tags";
+
         private readonly GitHubContext _ServiceContext;
         private readonly GitHubClient _Client;
 
@@ -146,18 +153,6 @@ namespace PSRule.Rules.GitHub.Pipeline
             _Client = new GitHubClient(_ServiceContext);
         }
 
-        public override void Process(PSObject sourceObject)
-        {
-            //if (sourceObject == null || !(sourceObject.BaseObject is TemplateSource source))
-            //    return;
-
-            //if (source.ParametersFile == null || source.ParametersFile.Length == 0)
-            //    Writer.WriteObject(ProcessTemplate(source.TemplateFile, null), true);
-            //else
-            //    for (var i = 0; i < source.ParametersFile.Length; i++)
-            //        Writer.WriteObject(ProcessTemplate(source.TemplateFile, source.ParametersFile[i]), true);
-        }
-
         public override void End()
         {
             for (var i = 0; _ServiceContext.Repository != null && i < _ServiceContext.Repository.Length; i++)
@@ -168,21 +163,21 @@ namespace PSRule.Rules.GitHub.Pipeline
 
         internal void ProcessRepository(string repositorySlug)
         {
-            var repos = GetRepository(repositorySlug);
+            var repos = _Client.GetRepository(repositorySlug);
             for (var r = 0; r < repos.Length; r++)
             {
                 var repo = PSObject.AsPSObject(repos[r]);
                 var branches = _Client.GetBranches(repos[r].Owner, repos[r].Name);
-                var labels = GetLabels(repos[r].Owner, repos[r].Name);
-                var milestones = GetMilestones(repos[r].Owner, repos[r].Name);
-                var releases = GetReleases(repos[r].Owner, repos[r].Name);
-                var tags = GetTags(repos[r].Owner, repos[r].Name);
+                var labels = _Client.GetLabels(repos[r].Owner, repos[r].Name);
+                var milestones = _Client.GetMilestones(repos[r].Owner, repos[r].Name);
+                var releases = _Client.GetReleases(repos[r].Owner, repos[r].Name);
+                var tags = _Client.GetTags(repos[r].Owner, repos[r].Name);
 
-                repo.Properties.Add(new PSNoteProperty("Branches", branches));
-                repo.Properties.Add(new PSNoteProperty("Labels", labels));
-                repo.Properties.Add(new PSNoteProperty("Milestones", milestones));
-                repo.Properties.Add(new PSNoteProperty("Releases", releases));
-                repo.Properties.Add(new PSNoteProperty("Tags", tags));
+                repo.Properties.Add(new PSNoteProperty(PROPERTY_BRANCHES, branches));
+                repo.Properties.Add(new PSNoteProperty(PROPERTY_LABELS, labels));
+                repo.Properties.Add(new PSNoteProperty(PROPERTY_MILESTONES, milestones));
+                repo.Properties.Add(new PSNoteProperty(PROPERTY_RELEASES, releases));
+                repo.Properties.Add(new PSNoteProperty(PROPERTY_TAGS, tags));
                 Writer.WriteObject(repo, false);
 
                 // Write branches as separate objects
@@ -205,97 +200,6 @@ namespace PSRule.Rules.GitHub.Pipeline
                 _Disposed = true;
             }
             base.Dispose(disposing);
-        }
-
-        private Repository[] GetRepository(string repositorySlug)
-        {
-            var items = _Client.GetRepository(repositorySlug);
-            var results = new Repository[items.Length];
-            for (var i = 0; i < items.Length; i++)
-            {
-                var communityFiles = _Client.GetCommunityFiles(items[i].Owner.Login, items[i].Name);
-                //var communityProfile = !items[i].Fork && !items[i].Private ? _Client.GetCommunityProfile(items[i].Owner.Login, items[i].Name) : null;
-                results[i] = new Repository(items[i].Owner.Login, items[i].Name)
-                {
-                    Description = items[i].Description,
-                    Private = items[i].Private,
-                    Fork = items[i].Fork,
-                    Archived = items[i].Archived,
-                    DefaultBranch = items[i].DefaultBranch,
-                    License = items[i].License.SpdxId,
-                    HtmlUrl = items[i].HtmlUrl,
-                    Homepage = items[i].Homepage,
-                    Language = items[i].Language,
-                    AllowMergeCommit = items[i].AllowMergeCommit,
-                    AllowRebaseMerge = items[i].AllowRebaseMerge,
-                    AllowSquashMerge = items[i].AllowSquashMerge,
-                    HasIssues = items[i].HasIssues,
-                    HasWiki = items[i].HasWiki,
-                    HasDownloads = items[i].HasDownloads,
-                    HasPages = items[i].HasPages,
-                    //CommunityProfile = communityProfile, 
-                    CommunityFiles = communityFiles,
-                };
-            }
-            return results;
-        }
-
-        private Label[] GetLabels(string owner, string name)
-        {
-            var items = _Client.GetLabels(owner, name);
-            var results = new Label[items.Length];
-            for (var i = 0; i < items.Length; i++)
-            {
-                results[i] = new Label(items[i].Name)
-                {
-                    Description = items[i].Description,
-                    Color = items[i].Color,
-                    Default = items[i].Default
-                };
-            }
-            return results;
-        }
-
-        private Milestone[] GetMilestones(string owner, string name)
-        {
-            var items = _Client.GetMilestones(owner, name);
-            var results = new Milestone[items.Length];
-            for (var i = 0; i < items.Length; i++)
-            {
-                results[i] = new Milestone(items[i].Number)
-                {
-                    Title = items[i].Title,
-                    Description = items[i].Description,
-                    State = items[i].State.StringValue,
-                };
-            }
-            return results;
-        }
-
-        private Release[] GetReleases(string owner, string name)
-        {
-            var items = _Client.GetReleases(owner, name);
-            var results = new Release[items.Length];
-            for (var i = 0; i < items.Length; i++)
-            {
-                results[i] = new Release(items[i].Name)
-                {
-                    Prerelease = items[i].Prerelease,
-                    TagName = items[i].TagName,
-                };
-            }
-            return results;
-        }
-
-        private RepositoryTag[] GetTags(string owner, string name)
-        {
-            var items = _Client.GetTags(owner, name);
-            var results = new RepositoryTag[items.Length];
-            for (var i = 0; i < items.Length; i++)
-            {
-                results[i] = new RepositoryTag(items[i].Name);
-            }
-            return results;
         }
     }
 }

@@ -99,14 +99,25 @@ namespace PSRule.Rules.GitHub.Pipeline
             return _Output;
         }
 
-        protected static bool TryGetEnvironmentVariableSecureString(string variable, out SecureString secureString)
+        protected static bool TryGetEnvironmentVariableString(string variable, out string value)
         {
-            secureString = null;
-            var value = Environment.GetEnvironmentVariable(variable);
-            if (string.IsNullOrEmpty(value))
+            value = null;
+            var v = Environment.GetEnvironmentVariable(variable);
+            if (string.IsNullOrEmpty(v))
                 return false;
 
-            secureString = new NetworkCredential("na", value).SecurePassword;
+            value = v;
+            return true;
+        }
+
+        protected static bool TryGetEnvironmentVariableSecureString(string variable, out SecureString value)
+        {
+            value = null;
+            var v = Environment.GetEnvironmentVariable(variable);
+            if (string.IsNullOrEmpty(v))
+                return false;
+
+            value = new NetworkCredential("na", v).SecurePassword;
             return true;
         }
     }
@@ -130,7 +141,7 @@ namespace PSRule.Rules.GitHub.Pipeline
 
         public virtual void Begin()
         {
-            //Reader.Open();
+            // Do nothing
         }
 
         public virtual void Process(PSObject sourceObject)
@@ -159,7 +170,7 @@ namespace PSRule.Rules.GitHub.Pipeline
             {
                 if (disposing)
                 {
-                    //Context.Dispose();
+                    // Do nothing
                 }
                 _Disposed = true;
             }
