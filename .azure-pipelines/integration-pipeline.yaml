@@ -22,8 +22,6 @@ resources:
       branches:
         include:
         - main
-      stages:
-      - Build
 
 stages:
 
