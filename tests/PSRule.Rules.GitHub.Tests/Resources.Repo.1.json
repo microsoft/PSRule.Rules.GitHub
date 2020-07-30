@@ -1167,12 +1167,9 @@
         "HasDownloads": true,
         "HasPages": true,
         "CommunityFiles": [
-            "CODE_OF_CONDUCT.md",
-            "CONTRIBUTING.md",
             "LICENSE",
             "README.md",
             "SECURITY.md",
-            ".github/CODEOWNERS",
             ".github/PULL_REQUEST_TEMPLATE.md",
             ".github/ISSUE_TEMPLATE/bug_report.md",
             ".github/ISSUE_TEMPLATE/feature_request.md"

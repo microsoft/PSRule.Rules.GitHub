@@ -16,6 +16,7 @@ namespace PSRule.Rules.GitHub.Data
             FullName = string.Concat(owner, '/', name);
         }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "Used for object serialization")]
         public string Type => OBJECT_TYPE;
 
         public string Owner { get; }
@@ -38,6 +39,7 @@ namespace PSRule.Rules.GitHub.Data
 
         public string License { get; internal set; }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1056:Uri properties should not be strings", Justification = "Used for object serialization")]
         public string HtmlUrl { get; internal set; }
 
         public string Homepage { get; internal set; }
@@ -73,6 +75,7 @@ namespace PSRule.Rules.GitHub.Data
             RepositoryName = repositoryName;
         }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "Used for object serialization")]
         public string Type => OBJECT_TYPE;
 
         public string Name { get; }
@@ -100,7 +103,7 @@ namespace PSRule.Rules.GitHub.Data
 
         public bool? RequireUpToDate { get; internal set; }
 
-        public string[] RequireStatusChecks { get; internal set; }
+        public IEnumerable<string> RequireStatusChecks { get; internal set; }
     }
 
     public sealed class BranchStatus

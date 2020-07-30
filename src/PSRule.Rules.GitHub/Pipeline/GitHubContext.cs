@@ -8,8 +8,6 @@ using System.Management.Automation;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Reflection;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace PSRule.Rules.GitHub.Pipeline
 {
@@ -21,15 +19,12 @@ namespace PSRule.Rules.GitHub.Pipeline
 
         private readonly PSCredential _Credential;
 
-        private GitHubHandler _GitHubHandler;
-
         private bool _Disposed;
 
         public GitHubContext(string[] repository, PSCredential credential)
         {
             Repository = repository;
             _Credential = credential;
-            _GitHubHandler = new GitHubHandler();
         }
 
         public string[] Repository { get; set; }
@@ -45,26 +40,12 @@ namespace PSRule.Rules.GitHub.Pipeline
 
         public HttpClient GetHttpClient()
         {
-            var client = new HttpClient(_GitHubHandler);
+            var client = new HttpClient();
             if (_Credential != null)
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("token", _Credential.GetNetworkCredential().Password);
 
             client.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue(GITHUB_PRODUCT_HEADER, ProductVersion));
             return client;
-        }
-
-        private sealed class GitHubHandler : HttpClientHandler
-        {
-            protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-            {
-                AddHeaders(request);
-                return base.SendAsync(request, cancellationToken);
-            }
-
-            private static void AddHeaders(HttpRequestMessage request)
-            {
-                
-            }
         }
 
         private void Dispose(bool disposing)
@@ -73,7 +54,7 @@ namespace PSRule.Rules.GitHub.Pipeline
             {
                 if (disposing)
                 {
-                    _GitHubHandler.Dispose();
+                    
                 }
                 _Disposed = true;
             }

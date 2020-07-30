@@ -2,7 +2,7 @@
 online version: https://github.com/BernieWhite/PSRule.Rules.GitHub/blob/main/docs/rules/en/GitHub.Repo.Protected.md
 ---
 
-# Name of rule
+# Enabled branch protection for default branch
 
 ## SYNOPSIS
 
@@ -14,7 +14,7 @@ Default branch is protected.
 
 ## RECOMMENDATION
 
-{{ A detailed explanation of the steps required to pass the rule }}
+Consider enabling branch protection rules on the repository default branch.
 
 ## NOTES
 

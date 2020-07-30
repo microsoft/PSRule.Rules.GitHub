@@ -17,10 +17,47 @@ namespace PSRule.Rules.GitHub.Pipeline
         private readonly Octokit.GitHubClient _Client;
         private readonly HttpClient _HttpClient;
 
+        #region Constructor
+
         public GitHubClient(GitHubContext serviceContext)
         {
             _Client = serviceContext.GetClient();
             _HttpClient = serviceContext.GetHttpClient();
+        }
+
+        #endregion Constructor
+
+        #region Public methods
+
+        public Repository[] GetRepository(string repositorySlug)
+        {
+            var items = GetRepositoryInternal(repositorySlug);
+            var results = new Repository[items.Length];
+            for (var i = 0; i < items.Length; i++)
+            {
+                var communityFiles = GetCommunityFiles(items[i].Owner.Login, items[i].Name);
+                results[i] = new Repository(items[i].Owner.Login, items[i].Name)
+                {
+                    Description = items[i].Description,
+                    Private = items[i].Private,
+                    Fork = items[i].Fork,
+                    Archived = items[i].Archived,
+                    DefaultBranch = items[i].DefaultBranch,
+                    License = items[i].License?.SpdxId,
+                    HtmlUrl = items[i].HtmlUrl,
+                    Homepage = items[i].Homepage,
+                    Language = items[i].Language,
+                    AllowMergeCommit = items[i].AllowMergeCommit,
+                    AllowRebaseMerge = items[i].AllowRebaseMerge,
+                    AllowSquashMerge = items[i].AllowSquashMerge,
+                    HasIssues = items[i].HasIssues,
+                    HasWiki = items[i].HasWiki,
+                    HasDownloads = items[i].HasDownloads,
+                    HasPages = items[i].HasPages,
+                    CommunityFiles = communityFiles,
+                };
+            }
+            return results;
         }
 
         public Branch[] GetBranches(string owner, string name)
@@ -45,6 +82,68 @@ namespace PSRule.Rules.GitHub.Pipeline
             return results;
         }
 
+        public Label[] GetLabels(string owner, string name)
+        {
+            var items = GetLabelsInternal(owner, name);
+            var results = new Label[items.Length];
+            for (var i = 0; i < items.Length; i++)
+            {
+                results[i] = new Label(items[i].Name)
+                {
+                    Description = items[i].Description,
+                    Color = items[i].Color,
+                    Default = items[i].Default
+                };
+            }
+            return results;
+        }
+
+        public Milestone[] GetMilestones(string owner, string name)
+        {
+            var items = GetMilestonesInternal(owner, name);
+            var results = new Milestone[items.Length];
+            for (var i = 0; i < items.Length; i++)
+            {
+                results[i] = new Milestone(items[i].Number)
+                {
+                    Title = items[i].Title,
+                    Description = items[i].Description,
+                    State = items[i].State.StringValue,
+                };
+            }
+            return results;
+        }
+
+        public Release[] GetReleases(string owner, string name)
+        {
+            var items = GetReleasesInternal(owner, name);
+            var results = new Release[items.Length];
+            for (var i = 0; i < items.Length; i++)
+            {
+                results[i] = new Release(items[i].Name)
+                {
+                    Prerelease = items[i].Prerelease,
+                    TagName = items[i].TagName,
+                };
+            }
+            return results;
+        }
+
+        public RepositoryTag[] GetTags(string owner, string name)
+        {
+            var items = GetTagsInternal(owner, name);
+            var results = new RepositoryTag[items.Length];
+            for (var i = 0; i < items.Length; i++)
+            {
+                results[i] = new RepositoryTag(items[i].Name);
+            }
+            return results;
+        }
+
+        #endregion Public methods
+
+        #region Private methods
+
         private IEnumerable<BranchStatus> GetBranchStatus(string owner, string name, string branch)
         {
             var result = new List<BranchStatus>();
@@ -63,7 +162,7 @@ namespace PSRule.Rules.GitHub.Pipeline
         /// <summary>
         /// Get matching repositories for the GitHub organization.
         /// </summary>
-        public Octokit.Repository[] GetRepository(string repositorySlug)
+        private Octokit.Repository[] GetRepositoryInternal(string repositorySlug)
         {
             var slugParts = repositorySlug.Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
             var owner = slugParts[0];
@@ -74,7 +173,7 @@ namespace PSRule.Rules.GitHub.Pipeline
             return isOrg ? GetOrgRepository(owner) : GetUserRepository(owner);
         }
 
-        public Data.CommunityProfile GetCommunityProfile(string owner, string name)
+        private Data.CommunityProfile GetCommunityProfileInternal(string owner, string name)
         {
             var profile = _HttpClient.Get<Data.CommunityProfile>($"https://api.github.com/repos/{owner}/{name}/community/profile", headers: GITHUB_HEADERS_COMMUNITY_PROFILE);
             return profile;
@@ -129,7 +228,7 @@ namespace PSRule.Rules.GitHub.Pipeline
         /// <summary>
         /// Get issue milestones for the repository.
         /// </summary>
-        public Octokit.Milestone[] GetMilestones(string owner, string name)
+        private Octokit.Milestone[] GetMilestonesInternal(string owner, string name)
         {
             var task = _Client.Issue.Milestone.GetAllForRepository(owner, name);
             task.Wait();
@@ -139,7 +238,7 @@ namespace PSRule.Rules.GitHub.Pipeline
         /// <summary>
         /// Get releases for the repository.
         /// </summary>
-        public Octokit.Release[] GetReleases(string owner, string name)
+        private Octokit.Release[] GetReleasesInternal(string owner, string name)
         {
             var task = _Client.Repository.Release.GetAll(owner, name);
             task.Wait();
@@ -149,14 +248,14 @@ namespace PSRule.Rules.GitHub.Pipeline
         /// <summary>
         /// Get issue labels for the repository.
         /// </summary>
-        public Octokit.Label[] GetLabels(string owner, string name)
+        private Octokit.Label[] GetLabelsInternal(string owner, string name)
         {
             var task = _Client.Issue.Labels.GetAllForRepository(owner, name);
             task.Wait();
             return task.Result.ToArray();
         }
 
-        public Octokit.RepositoryTag[] GetTags(string owner, string name)
+        private Octokit.RepositoryTag[] GetTagsInternal(string owner, string name)
         {
             var task = _Client.Repository.GetAllTags(owner, name);
             task.Wait();
@@ -173,7 +272,7 @@ namespace PSRule.Rules.GitHub.Pipeline
             "PULL_REQUEST_TEMPLATE"
         };
 
-        public string[] GetCommunityFiles(string owner, string name)
+        private string[] GetCommunityFiles(string owner, string name)
         {
             var contentFiles = GetGitHubFiles(owner, name, GitHubPaths);
             var files = new List<string>();
@@ -255,5 +354,7 @@ namespace PSRule.Rules.GitHub.Pipeline
             task.Wait();
             return new Octokit.Repository[] { task.Result };
         }
+
+        #endregion Private methods
     }
 }
