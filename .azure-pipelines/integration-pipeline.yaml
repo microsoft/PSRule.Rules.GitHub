@@ -32,7 +32,7 @@ stages:
   jobs:
   - template: jobs/integrationContainer.yaml
     parameters:
-      name: ps_7_ubuntu_18_04
-      displayName: 'PowerShell 7.0 - ubuntu-18.04'
+      name: gh_integration
+      displayName: 'GitHub Integration Tests'
       imageName: mcr.microsoft.com/powershell
       imageTag: 7.0.3-ubuntu-18.04
