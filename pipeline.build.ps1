@@ -279,6 +279,30 @@ task TestModule ModuleDependencies, Pester, PSScriptAnalyzer, {
     }
 }
 
+task IntegrationTest ModuleDependencies, Pester, {
+    # Run Pester tests
+    $pesterParams = @{ Path = (Join-Path -Path $PWD -ChildPath tests/Integration); OutputFile = 'reports/pester-unit.xml'; OutputFormat = 'NUnitXml'; PesterOption = @{ IncludeVSCodeMarker = $True }; PassThru = $True; };
+
+    if ($CodeCoverage) {
+        $pesterParams.Add('CodeCoverage', (Join-Path -Path $PWD -ChildPath 'out/modules/**/*.psm1'));
+        $pesterParams.Add('CodeCoverageOutputFile', (Join-Path -Path $PWD -ChildPath 'reports/pester-coverage.xml'));
+    }
+
+    if (!(Test-Path -Path reports)) {
+        $Null = New-Item -Path reports -ItemType Directory -Force;
+    }
+
+    $results = Invoke-Pester @pesterParams;
+
+    # Throw an error if pester tests failed
+    if ($Null -eq $results) {
+        throw 'Failed to get Pester test results.';
+    }
+    elseif ($results.FailedCount -gt 0) {
+        throw "$($results.FailedCount) tests failed.";
+    }
+}
+
 # Synopsis: Run validation
 task Rules PSRule, {
     $assertParams = @{
