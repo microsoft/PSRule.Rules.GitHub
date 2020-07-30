@@ -16,18 +16,11 @@ Rule 'Rule.Help' -Type 'PSRule.Rules.Rule' {
     $Assert.HasFieldValue($TargetObject, 'Info.Recommendation')
 }
 
-# # Synopsis: Rules must flag if the Azure feature is GA or preview
-# Rule 'Rule.Tags' -Type 'PSRule.Rules.Rule' {
-#     Recommend 'Add a release tag to the rule.'
-#     $TargetObject.Tag.ToHashtable() | Within 'release' 'GA', 'preview' -CaseSensitive
-# }
-
-# # Synopsis: Use severity and category annotations
-# Rule 'Rule.Annotations' -Type 'PSRule.Rules.Rule' {
-#     $Assert.HasFieldValue($TargetObject, 'Info.Annotations.severity')
-#     $Assert.HasFieldValue($TargetObject, 'Info.Annotations.category')
-#     $Assert.HasFieldValue($TargetObject, 'Info.Annotations.resource')
-# }
+# Synopsis: Use severity and category annotations
+Rule 'Rule.Annotations' -Type 'PSRule.Rules.Rule' {
+    $Assert.HasFieldValue($TargetObject, 'Info.Annotations.severity')
+    $Assert.HasFieldValue($TargetObject, 'Info.Annotations.category')
+}
 
 # Synopsis: Use online help
 Rule 'Rule.OnlineHelp' -Type 'PSRule.Rules.Rule' {

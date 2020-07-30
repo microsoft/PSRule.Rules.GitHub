@@ -74,7 +74,8 @@
             "problemMatcher": []
         },
         {
-            "label": "build-rule-docs",
+            "label": "Rule docs",
+            "detail": "Generate rule table of contents.",
             "type": "shell",
             "command": "Invoke-Build BuildRuleDocs",
             "problemMatcher": []
