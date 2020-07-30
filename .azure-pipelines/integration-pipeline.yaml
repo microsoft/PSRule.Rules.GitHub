@@ -1,10 +1,9 @@
 # Azure DevOps
-# CI pipeline for PSRule.Rules.GitHub
+# Pipeline to run integration tests for PSRule.Rules.GitHub
 
 variables:
   version: '0.1.0'
   buildConfiguration: 'Release'
-  disable.coverage.autogenerate: 'true'
   imageName: 'ubuntu-18.04'
 
 resources:
@@ -17,7 +16,7 @@ resources:
         include:
         - main
 
-# Use build number format, i.e. 0.1.0-B2007001+I2007009
+# Use build number format, i.e. I2007009
 name: I$(date:yyMM)$(rev:rrr)
 
 trigger: none

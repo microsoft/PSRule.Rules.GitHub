@@ -1,5 +1,5 @@
 # Azure DevOps
-# CI job for running container pipelines
+# Job for running integration tests pipelines in a container
 
 parameters:
   name: ''
@@ -8,7 +8,6 @@ parameters:
   vmImage: 'ubuntu-16.04'
   imageName: ''
   imageTag: ''
-  coverage: 'false'
   publishResults: 'true'
 
 jobs:
@@ -20,10 +19,8 @@ jobs:
   container:
     image: '${{ parameters.imageName }}:${{ parameters.imageTag }}'
     env:
-      COVERAGE: ${{ parameters.coverage }}
       PUBLISHRESULTS: ${{ parameters.publishResults }}
   variables:
-    COVERAGE: ${{ parameters.coverage }}
     PUBLISHRESULTS: ${{ parameters.publishResults }}
     skipComponentGovernanceDetection: true
   steps:
