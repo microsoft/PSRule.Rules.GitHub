@@ -14,6 +14,7 @@ parameters:
 jobs:
 - job: ${{ parameters.name }}
   displayName: ${{ parameters.displayName }}
+  condition: not(eq(variables['Build.Reason'], 'PullRequest'))
   pool:
     vmImage: ${{ parameters.vmImage }}
   container:
@@ -36,11 +37,11 @@ jobs:
     displayName: 'Download module'
     inputs:
       artifact: PSRule.Rules.GitHub
-      source: 'specific'
-      runVersion: 'specific'
-      project: 'PSRule.Rules.GitHub'
-      pipeline: $(resources.pipeline.CI.pipelineID)
-      runId: $(resources.pipeline.CI.runID)
+      # source: 'specific'
+      # runVersion: 'specific'
+      # project: 'PSRule.Rules.GitHub'
+      # pipeline: $(resources.pipeline.CI.pipelineID)
+      # runId: $(resources.pipeline.CI.runID)
       path: $(Build.SourcesDirectory)/out/modules/PSRule.Rules.GitHub
 
   # Build module

@@ -172,6 +172,20 @@ stages:
       imageName: mcr.microsoft.com/powershell
       imageTag: 6.2.4-ubuntu-18.04
 
+# Test pipeline
+- stage: Integration
+  dependsOn: Build
+  condition: not(eq(variables['Build.Reason'], 'PullRequest'))
+  variables:
+    skipComponentGovernanceDetection: 'true'
+  jobs:
+  - template: jobs/integrationContainer.yaml
+    parameters:
+      name: gh_integration
+      displayName: 'GitHub Integration Tests'
+      imageName: mcr.microsoft.com/powershell
+      imageTag: 7.0.3-ubuntu-18.04
+
 # Release pipeline
 - stage: Release
   displayName: Release
