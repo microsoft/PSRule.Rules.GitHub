@@ -27,7 +27,6 @@ stages:
 
 # Test pipeline
 - stage: Test
-  dependsOn: Build
   variables:
     skipComponentGovernanceDetection: 'true'
   jobs:
