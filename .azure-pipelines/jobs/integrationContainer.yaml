@@ -36,13 +36,15 @@ jobs:
     displayName: 'Download module'
     inputs:
       artifact: PSRule.Rules.GitHub
+      source: 'specific'
+      runVersion: 'specific'
       project: 'PSRule.Rules.GitHub'
-      pipelineId: $(resources.pipeline.CI.runID)
-      buildType: specific
+      pipeline: $(resources.pipeline.CI.pipelineID)
+      runId: $(resources.pipeline.CI.runID)
       path: $(Build.SourcesDirectory)/out/modules/PSRule.Rules.GitHub
 
   # Build module
-  - powershell: Invoke-Build TestModule -Configuration ${{ parameters.buildConfiguration }} -Build $(Build.BuildNumber)
+  - powershell: Invoke-Build IntegrationTest -Configuration ${{ parameters.buildConfiguration }} -Build $(Build.BuildNumber)
     displayName: 'Test module'
 
   # Pester test results
@@ -57,23 +59,3 @@ jobs:
       configuration: ${{ parameters.buildConfiguration }}
       publishRunAttachments: true
     condition: and(succeededOrFailed(), eq(variables['PUBLISHRESULTS'], 'true'))
-
-  # Generate Code Coverage report
-  - task: Palmmedia.reportgenerator.reportgenerator-build-release-task.reportgenerator@4
-    displayName: 'Code coverage report generator'
-    inputs:
-      reports: 'reports\pester-coverage.xml'
-      targetdir: 'reports\coverage'
-      sourcedirs: 'src\PSRule.Rules.GitHub'
-      reporttypes: 'HtmlInline_AzurePipelines;Cobertura;SonarQube;Badges'
-      tag: $(Build.BuildNumber)
-    condition: eq(variables['COVERAGE'], 'true')
-
-  # Publish Code Coverage report
-  - task: PublishCodeCoverageResults@1
-    displayName: 'Publish Pester code coverage'
-    inputs:
-      codeCoverageTool: 'Cobertura'
-      summaryFileLocation: 'reports/coverage/Cobertura.xml'
-      reportDirectory: 'reports/coverage'
-    condition: eq(variables['COVERAGE'], 'true')

@@ -8,7 +8,7 @@ variables:
   imageName: 'ubuntu-18.04'
 
  # Use build number format, i.e. 0.1.0-B2007001
-name: I$(date:yyMM)$(rev:rrr)
+name: $(resources.pipeline.CI.runName)+$(date:yyMM)$(rev:rrr)
 
 trigger: none
 pr: none
