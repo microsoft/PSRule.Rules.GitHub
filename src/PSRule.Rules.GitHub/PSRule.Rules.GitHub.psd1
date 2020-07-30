@@ -13,7 +13,7 @@ RootModule = 'PSRule.Rules.GitHub.psm1'
 ModuleVersion = '0.0.1'
 
 # Supported PSEditions
-# CompatiblePSEditions = @()
+CompatiblePSEditions = 'Core', 'Desktop'
 
 # ID used to uniquely identify this module
 GUID = 'd6140d02-6dff-40bb-a472-3a79af7341fc'
