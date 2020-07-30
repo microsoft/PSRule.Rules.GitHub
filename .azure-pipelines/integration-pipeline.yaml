@@ -17,7 +17,7 @@ resources:
         include:
         - main
 
-# Use build number format, i.e. I0.1.0-B2007001+2007009
+# Use build number format, i.e. 0.1.0-B2007001+I2007009
 name: I$(date:yyMM)$(rev:rrr)
 
 trigger: none

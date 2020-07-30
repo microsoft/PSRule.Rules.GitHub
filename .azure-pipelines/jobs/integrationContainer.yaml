@@ -26,8 +26,6 @@ jobs:
     PUBLISHRESULTS: ${{ parameters.publishResults }}
     skipComponentGovernanceDetection: true
   steps:
-  - powershell: Out-Host "`#`#vso[build.updatebuildnumber]$(resources.pipeline.CI.runName)-$(Build.BuildNumber)"
-    displayName: 'Update build number'
 
   # Install pipeline dependencies
   - powershell: ./.azure-pipelines/pipeline-deps.ps1
