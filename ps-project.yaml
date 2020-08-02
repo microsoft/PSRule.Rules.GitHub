@@ -16,7 +16,7 @@ bugs:
   url: https://github.com/BernieWhite/PSRule.Rules.GitHub/issues
 
 modules:
-  PSRule: ^0.18.1
+  PSRule: ^0.19.0
 
 tasks:
   clear:
