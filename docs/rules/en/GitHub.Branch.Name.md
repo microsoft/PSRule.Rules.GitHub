@@ -1,7 +1,7 @@
 ---
 category: Branch
 severity: Awareness
-online version: https://github.com/BernieWhite/PSRule.Rules.GitHub/blob/main/docs/rules/en/GitHub.Branch.Name.md
+online version: https://github.com/Microsoft/PSRule.Rules.GitHub/blob/main/docs/rules/en/GitHub.Branch.Name.md
 ---
 
 # Use consistent branch names
