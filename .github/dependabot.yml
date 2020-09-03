@@ -9,21 +9,21 @@ version: 2
 updates:
 
 # Maintain dependencies for GitHub Actions
-- package-ecosystem: "github-actions"
-  directory: "/"
+- package-ecosystem: 'github-actions'
+  directory: '/'
   schedule:
-    interval: "daily"
+    interval: 'daily'
   labels:
-  - "ci-quality"
+  - 'ci-quality'
   reviewers:
-  - "microsoft/psrule-rules-github"
+  - 'microsoft/psrule-rules-github'
 
 # Maintain dependencies for NuGet
-  - package-ecosystem: "nuget"
-    directory: "/"
-    schedule:
-      interval: "daily"
-    labels:
-    - "dependencies"
-    reviewers:
-    - "microsoft/psrule-rules-github"
+- package-ecosystem: 'nuget'
+  directory: '/'
+  schedule:
+    interval: 'daily'
+  labels:
+  - 'dependencies'
+  reviewers:
+  - 'microsoft/psrule-rules-github'
