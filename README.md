@@ -4,7 +4,11 @@ A suite of rules to validate GitHub repositories using PSRule.
 
 ![ci-badge]
 
-**More to come soon.**
+Features of PSRule for GitHub include:
+
+- [Ready to go](docs/features.md#ready-to-go) - Leverage pre-built rules.
+- [DevOps](docs/features.md#devops) - Validate repositories throughout their lifecycle.
+- [Cross-platform](docs/features.md#cross-platform) - Run with GitHub Action or other CI integrations.
 
 ## Disclaimer
 
@@ -56,6 +60,16 @@ For advanced usage, see [Assert-PSRule](https://microsoft.github.io/PSRule/comma
 For a list of rules included in the `PSRule.Rules.GitHub` module see:
 
 - [Rules by category](docs/rules/en/module.md)
+
+## Language reference
+
+PSRule for GitHub extends PowerShell with the following features.
+
+### Commands
+
+The following commands exist in the `PSRule.Rules.GitHub` module:
+
+- [Export-GitHubRuleData](docs/commands/PSRule.Rules.GitHub/en-US/Export-GitHubRuleData.md) - Export GitHub repository configuration.
 
 ## Changes and versioning
 
