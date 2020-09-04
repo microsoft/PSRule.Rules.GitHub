@@ -22,6 +22,7 @@
         "**/.azure-pipelines/jobs/*.yaml": "azure-pipelines"
     },
     "cSpell.words": [
+        "cmdlets"
     ],
     "cSpell.enabledLanguageIds": [
         "csharp",

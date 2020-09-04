@@ -348,24 +348,25 @@ task BuildHelp BuildModule, PlatyPS, {
 
     $Null = Copy-Item -Path docs/rules/en/*.md -Destination out/modules/PSRule.Rules.GitHub/en/;
 
-    # # Avoid YamlDotNet issue in same app domain
-    # exec {
-    #     $pwshPath = (Get-Process -Id $PID).Path;
-    #     &$pwshPath -Command {
-    #         # Generate MAML and about topics
-    #         Import-Module -Name PlatyPS -Verbose:$False;
-    #         $Null = New-ExternalHelp -OutputPath 'out/docs/PSRule.Rules.GitHub' -Path '.\docs\commands\PSRule.Rules.GitHub\en-US', '.\docs\concepts\PSRule.Rules.GitHub\en-US' -Force;
+    # Avoid YamlDotNet issue in same app domain
+    exec {
+        $pwshPath = (Get-Process -Id $PID).Path;
+        &$pwshPath -Command {
+            # Generate MAML and about topics
+            Import-Module -Name PlatyPS -Verbose:$False;
+            $Null = New-ExternalHelp -OutputPath 'out/docs/PSRule.Rules.GitHub' -Path '.\docs\commands\PSRule.Rules.GitHub\en-US' -Force;
+            # '.\docs\concepts\PSRule.Rules.GitHub\en-US'
 
-    #          # Copy generated help into module out path
-    #         $Null = Copy-Item -Path out/docs/PSRule.Rules.GitHub/* -Destination out/modules/PSRule.Rules.GitHub/en-US/ -Recurse;
-    #         $Null = Copy-Item -Path out/docs/PSRule.Rules.GitHub/* -Destination out/modules/PSRule.Rules.GitHub/en-AU/ -Recurse;
-    #         $Null = Copy-Item -Path out/docs/PSRule.Rules.GitHub/* -Destination out/modules/PSRule.Rules.GitHub/en-GB/ -Recurse;
-    #     }
-    # }
+             # Copy generated help into module out path
+            $Null = Copy-Item -Path out/docs/PSRule.Rules.GitHub/* -Destination out/modules/PSRule.Rules.GitHub/en-US/ -Recurse;
+            $Null = Copy-Item -Path out/docs/PSRule.Rules.GitHub/* -Destination out/modules/PSRule.Rules.GitHub/en-AU/ -Recurse;
+            $Null = Copy-Item -Path out/docs/PSRule.Rules.GitHub/* -Destination out/modules/PSRule.Rules.GitHub/en-GB/ -Recurse;
+        }
+    }
 
-    # if (!(Test-Path -Path 'out/docs/PSRule.Rules.GitHub/PSRule.Rules.GitHub-help.xml')) {
-    #     throw 'Failed find generated cmdlet help.';
-    # }
+    if (!(Test-Path -Path 'out/docs/PSRule.Rules.GitHub/PSRule.Rules.GitHub-help.xml')) {
+        throw 'Failed find generated cmdlet help.';
+    }
 }
 
 task ScaffoldHelp Build, BuildRuleDocs, {

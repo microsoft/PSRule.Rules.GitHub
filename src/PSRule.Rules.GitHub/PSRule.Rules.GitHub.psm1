@@ -19,6 +19,7 @@ Set-StrictMode -Version latest;
 
 #region Public functions
 
+# .ExternalHelp PSRule.Rules.GitHub-help.xml
 function Export-GitHubRuleData {
     [CmdletBinding()]
     [OutputType([System.IO.FileInfo])]
