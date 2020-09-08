@@ -150,14 +150,6 @@ stages:
       displayName: 'PowerShell 5.1 - win2016'
       imageName: 'vs2017-win2016'
 
-  # Currently can't use alpine because addtional tools for Azure DevOps are required
-  # - template: jobs/testContainer.yaml
-  #   parameters:
-  #     name: alpine_3_10
-  #     displayName: 'PowerShell 7.0  - alpine-3.10'
-  #     imageName: mcr.microsoft.com/powershell
-  #     imageTag: 7.0.0-alpine-3.10
-
   - template: jobs/testContainer.yaml
     parameters:
       name: ps_7_ubuntu_18_04
@@ -204,15 +196,15 @@ stages:
       displayName: 'Publish module'
 
     # Update GitHub release
-    # - task: GitHubRelease@1
-    #   displayName: 'GitHub release'
-    #   inputs:
-    #     gitHubConnection: 'AzureDevOps-PSRule.Rules.GitHub'
-    #     repositoryName: '$(Build.Repository.Name)'
-    #     action: edit
-    #     tag: '$(Build.SourceBranchName)'
-    #     releaseNotesSource: inline
-    #     releaseNotesInline: 'See [change log](https://github.com/Microsoft/PSRule.Rules.GitHub/blob/main/CHANGELOG.md)'
-    #     assetUploadMode: replace
-    #     addChangeLog: false
-    #     isPreRelease: $(isPreRelease)
+    - task: GitHubRelease@1
+      displayName: 'GitHub release'
+      inputs:
+        gitHubConnection: 'AzureDevOps-PSRule.Rules.GitHub'
+        repositoryName: '$(Build.Repository.Name)'
+        action: edit
+        tag: '$(Build.SourceBranchName)'
+        releaseNotesSource: inline
+        releaseNotesInline: 'See [change log](https://github.com/Microsoft/PSRule.Rules.GitHub/blob/main/CHANGELOG.md)'
+        assetUploadMode: replace
+        addChangeLog: false
+        isPreRelease: $(isPreRelease)
