@@ -19,6 +19,16 @@ If you do not see your problem captured, please file a new issue, and follow the
 
 If you have any problems with the [PSRule][engine] engine, please check the project GitHub [issues](https://github.com/Microsoft/PSRule/issues) page instead.
 
+## Getting the modules
+
+This project requires the `PSRule` PowerShell module. For details on each see [install].
+
+You can download and install these modules from the PowerShell Gallery.
+
+Module              | Description | Downloads / instructions
+------              | ----------- | ------------------------
+PSRule.Rules.GitHub | Validate GitHub repositories using PSRule. | [latest][module] / [instructions][install]
+
 ## Getting started
 
 ### Export repository
@@ -101,7 +111,7 @@ or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any addi
 This project is [licensed under the MIT License](LICENSE).
 
 [issue]: https://github.com/Microsoft/PSRule.Rules.GitHub/issues
-[install]: docs/scenarios/install-instructions.md
+[install]: docs/install-instructions.md
 [ci-badge]: https://dev.azure.com/bewhite/PSRule.Rules.GitHub/_apis/build/status/PSRule.Rules.GitHub-CI?branchName=main
 [module]: https://www.powershellgallery.com/packages/PSRule.Rules.GitHub
 [engine]: https://github.com/Microsoft/PSRule
