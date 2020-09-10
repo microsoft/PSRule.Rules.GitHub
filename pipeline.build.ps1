@@ -86,44 +86,6 @@ function CopyModuleFiles {
     }
 }
 
-function Get-RepoRuleData {
-    [CmdletBinding()]
-    param (
-        [Parameter(Position = 0, Mandatory = $False)]
-        [String]$Path = $PWD
-    )
-    process {
-        GetPathInfo -Path $Path -Verbose:$VerbosePreference;
-    }
-}
-
-function GetPathInfo {
-    [CmdletBinding()]
-    param (
-        [Parameter(Mandatory = $True)]
-        [String]$Path
-    )
-    begin {
-        $items = New-Object -TypeName System.Collections.ArrayList;
-    }
-    process {
-        $Null = $items.Add((Get-Item -Path $Path));
-        $files = @(Get-ChildItem -Path $Path -File -Recurse -Include *.ps1,*.psm1,*.psd1,*.cs | Where-Object {
-            !($_.FullName -like "*.Designer.cs") -and
-            !($_.FullName -like "*/bin/*") -and
-            !($_.FullName -like "*/obj/*") -and
-            !($_.FullName -like "*\obj\*") -and
-            !($_.FullName -like "*\bin\*") -and
-            !($_.FullName -like "*\out\*") -and
-            !($_.FullName -like "*/out/*")
-        });
-        $Null = $items.AddRange($files);
-    }
-    end {
-        $items;
-    }
-}
-
 task VersionModule ModuleDependencies, {
     $modulePath = Join-Path -Path $ArtifactPath -ChildPath PSRule.Rules.GitHub;
     $manifestPath = Join-Path -Path $modulePath -ChildPath PSRule.Rules.GitHub.psd1;
@@ -153,9 +115,6 @@ task VersionModule ModuleDependencies, {
         }
     };
     Update-ModuleManifest -Path $manifestPath -RequiredModules $requiredModules;
-    $manifestContent = Get-Content -Path $manifestPath -Raw;
-    $manifestContent = $manifestContent -replace 'PSRule = ''System.Collections.Hashtable''', 'PSRule = @{ Baseline = ''Azure.Default'' }';
-    $manifestContent | Set-Content -Path $manifestPath;
 }
 
 # Synopsis: Publish to PowerShell Gallery
@@ -312,8 +271,7 @@ task Rules PSRule, {
         ErrorAction = 'Stop'
     }
     Import-Module (Join-Path -Path $PWD -ChildPath out/modules/PSRule.Rules.GitHub) -Force;
-    Get-RepoRuleData -Path $PWD |
-        Assert-PSRule @assertParams -OutputPath reports/ps-rule-file.xml;
+    Assert-PSRule @assertParams -InputPath $PWD -Format File -OutputPath reports/ps-rule-file.xml;
 
     $rules = Get-PSRule -Module PSRule.Rules.GitHub;
     $rules | Assert-PSRule @assertParams -OutputPath reports/ps-rule-file2.xml;
