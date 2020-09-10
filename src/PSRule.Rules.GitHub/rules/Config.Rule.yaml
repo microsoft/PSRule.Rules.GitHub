@@ -8,9 +8,15 @@ metadata:
 spec:
   binding:
     targetName:
-    - Name
+    - BranchName
+    - RepositoryName
     targetType:
     - Type
+
+  output:
+    culture:
+    - 'en'
+
   configuration:
     GitHub_BranchName_Format: ''
     GitHub_BranchName_Disallowed:

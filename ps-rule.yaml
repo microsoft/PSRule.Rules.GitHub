@@ -1,20 +1,10 @@
 # PSRule options for QA
 
-binding:
-  targetName:
-  - RuleName
-  - FullName
-
 output:
   culture:
   - en-US
 
-suppression:
-  OpenSource.License:
+input:
+  pathIgnore:
   # Dynamically generated
-  - '/github/workspace/src/PSRule.Rules.GitHub/Resources/PSRuleResources.Designer.cs'
-
-configuration:
-  REPOS_CodeFile_Header: |-
-    Copyright (c) Microsoft Corporation.
-    Licensed under the MIT License.
+  - '*.Designer.cs'
