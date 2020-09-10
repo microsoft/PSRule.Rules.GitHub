@@ -26,7 +26,7 @@ GitHub repositories can be validated throughout their lifecycle to support a Dev
 
 PSRule for GitHub provides the following cmdlets that extract data for analysis:
 
-- [Export-GitHubRuleData](docs/commands/PSRule.Rules.GitHub/en-US/Export-GitHubRuleData.md) - Export GitHub repository configuration.
+- [Export-GitHubRuleData](commands/PSRule.Rules.GitHub/en-US/Export-GitHubRuleData.md) - Export GitHub repository configuration.
 
 ## Cross-platform
 

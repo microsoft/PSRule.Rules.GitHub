@@ -8,7 +8,7 @@ Features of PSRule for GitHub include:
 
 - [Ready to go](docs/features.md#ready-to-go) - Leverage pre-built rules.
 - [DevOps](docs/features.md#devops) - Validate repositories throughout their lifecycle.
-- [Cross-platform](docs/features.md#cross-platform) - Run with GitHub Action or other CI integrations.
+- [Cross-platform](docs/features.md#cross-platform) - Run with GitHub Actions or other CI integrations.
 
 ## Disclaimer
 
