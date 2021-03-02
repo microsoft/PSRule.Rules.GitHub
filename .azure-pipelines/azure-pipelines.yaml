@@ -89,6 +89,11 @@ stages:
     condition: not(eq(variables['Build.Reason'], 'PullRequest'))
     steps:
 
+    - script: |
+        echo "##vso[task.setvariable variable=JAVA_HOME]$(JAVA_HOME_11_X64)"
+        echo "##vso[task.setvariable variable=PATH]$(JAVA_HOME_11_X64)\bin;$(PATH)"
+      displayName: 'Set Java version'
+
     # Run SonarCloud analysis
     - script: dotnet tool install --global dotnet-sonarscanner
       displayName: 'Install Sonar scanner'
@@ -141,7 +146,7 @@ stages:
   - template: jobs/test.yaml
     parameters:
       name: macOS_10_15
-      displayName: 'PowerShell 7.0 - macOS-10.15'
+      displayName: 'PowerShell 7.1 - macOS-10.15'
       imageName: 'macOS-10.15'
 
   - template: jobs/test.yaml
@@ -155,7 +160,7 @@ stages:
       name: ps_7_ubuntu_18_04
       displayName: 'PowerShell 7.0 - ubuntu-18.04'
       imageName: mcr.microsoft.com/powershell
-      imageTag: 7.0.0-ubuntu-18.04
+      imageTag: 7.0.3-ubuntu-18.04
 
   - template: jobs/testContainer.yaml
     parameters:
