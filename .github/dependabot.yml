@@ -27,3 +27,5 @@ updates:
   - 'dependencies'
   reviewers:
   - 'microsoft/psrule-rules-github'
+  ignore:
+  - dependency-name: Newtonsoft.Json
