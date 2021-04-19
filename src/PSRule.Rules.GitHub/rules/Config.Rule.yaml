@@ -1,7 +1,9 @@
-
+# Copyright (c) Microsoft Corporation.
+# Licensed under the MIT License.
 
 ---
 # Synopsis: Configuration for PSRule.Rules.GitHub
+apiVersion: github.com/microsoft/PSRule/v1
 kind: ModuleConfig
 metadata:
   name: PSRule.Rules.GitHub

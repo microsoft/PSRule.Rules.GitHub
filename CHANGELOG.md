@@ -2,6 +2,19 @@
 
 ## Unreleased
 
+What's changed since pre-release v0.1.0-B2103003:
+
+- General improvements:
+  - Export pull request reviews branch protection data. [#63](https://github.com/microsoft/PSRule.Rules.GitHub/issues/63)
+  - Export additional repository data. [#64](https://github.com/microsoft/PSRule.Rules.GitHub/issues/64)
+  - Added resource API versions. [#66](https://github.com/microsoft/PSRule.Rules.GitHub/issues/66)
+- Engineering:
+  - Bump YamlDotNet to 11.1.1. [#61](https://github.com/microsoft/PSRule.Rules.GitHub/pull/61)
+  - Bump PSRule dependency to v1.1.0. [#67](https://github.com/microsoft/PSRule.Rules.GitHub/issues/67)
+    - See the [change log](https://github.com/microsoft/PSRule/blob/main/docs/CHANGELOG-v1.md#v120)
+- Bug fixes:
+  - Fixed null community profile. [#65](https://github.com/microsoft/PSRule.Rules.GitHub/issues/65)
+
 ## v0.1.0-B2103003 (pre-release)
 
 What's changed since pre-release v0.1.0-B2009006:

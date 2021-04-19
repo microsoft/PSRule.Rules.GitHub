@@ -36,6 +36,7 @@ namespace PSRule.Rules.GitHub.Pipeline
             for (var i = 0; i < items.Length; i++)
             {
                 var communityFiles = GetCommunityFiles(items[i].Owner.Login, items[i].Name);
+                var communityProfile = GetCommunityProfileInternal(items[i].Owner.Login, items[i].Name);
                 results[i] = new Repository(items[i].Owner.Login, items[i].Name)
                 {
                     Description = items[i].Description,
@@ -54,7 +55,11 @@ namespace PSRule.Rules.GitHub.Pipeline
                     HasWiki = items[i].HasWiki,
                     HasDownloads = items[i].HasDownloads,
                     HasPages = items[i].HasPages,
+                    CommunityProfile = communityProfile,
                     CommunityFiles = communityFiles,
+                    IsTemplate = items[i].IsTemplate,
+                    DeleteBranchOnMerge = items[i].DeleteBranchOnMerge,
+                    Visibility = items[i].Visibility.HasValue ? Enum.GetName(typeof(Octokit.RepositoryVisibility), items[i].Visibility) : null,
                 };
             }
             return results;
@@ -75,6 +80,10 @@ namespace PSRule.Rules.GitHub.Pipeline
                         EnforceAdmins = protection?.EnforceAdmins?.Enabled,
                         RequireUpToDate = protection?.RequiredStatusChecks?.Strict,
                         RequireStatusChecks = protection?.RequiredStatusChecks?.Contexts?.ToArray(),
+                        RequirePullRequestReviews = protection?.RequiredPullRequestReviews != null && protection?.RequiredPullRequestReviews?.RequiredApprovingReviewCount > 0,
+                        DismissStaleReviews = protection?.RequiredPullRequestReviews?.DismissStaleReviews,
+                        RequireCodeOwnerReviews = protection?.RequiredPullRequestReviews?.RequireCodeOwnerReviews,
+                        RequiredApprovingReviewCount = protection?.RequiredPullRequestReviews?.RequiredApprovingReviewCount,
                     },
                     Status = status,
                 };
