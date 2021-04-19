@@ -15,9 +15,9 @@
     <PackageLicenseExpression>https://github.com/Microsoft/PSRule.Rules.GitHub/blob/master/LICENSE</PackageLicenseExpression>
     <Version>0.0.1</Version>
     <Copyright>Copyright (c) Microsoft Corporation. Licensed under the MIT License.</Copyright>
-    <Description>GitHub repositories using PSRule.
+    <Description>A suite of rules to validate GitHub repositories using PSRule.
 
-This project is to be considered a proof-of-concept and not a supported product.</Description>
+This project uses GitHub Issues to track bugs and feature requests. See GitHub project for more information.</Description>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(OS)' == 'Windows_NT'">
