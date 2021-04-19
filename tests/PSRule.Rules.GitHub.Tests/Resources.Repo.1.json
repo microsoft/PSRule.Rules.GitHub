@@ -863,7 +863,8 @@
             "RequireStatusChecks": [
                 "Check-CI",
                 "license/cla"
-            ]
+            ],
+            "RequirePullRequestReviews": false
         },
         "Status": [
             {
@@ -1166,12 +1167,23 @@
         "HasWiki": false,
         "HasDownloads": true,
         "HasPages": true,
+        "CommunityProfile": {
+            "CodeOfConduct": true,
+            "Contributing": true,
+            "IssueTemplate": true,
+            "PullRequestTemplate": true,
+            "License": true,
+            "ReadMe": true
+        },
         "CommunityFiles": [
             "LICENSE",
             "SECURITY.md",
             ".github/PULL_REQUEST_TEMPLATE.md",
             ".github/ISSUE_TEMPLATE/bug_report.md",
             ".github/ISSUE_TEMPLATE/feature_request.md"
-        ]
+        ],
+        "IsTemplate": false,
+        "DeleteBranchOnMerge": true,
+        "Visibility": "Public"
     }
 ]

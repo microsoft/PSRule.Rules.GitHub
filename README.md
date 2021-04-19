@@ -10,14 +10,17 @@ Features of PSRule for GitHub include:
 - [DevOps](docs/features.md#devops) - Validate repositories throughout their lifecycle.
 - [Cross-platform](docs/features.md#cross-platform) - Run with GitHub Actions or other CI integrations.
 
-## Disclaimer
+## Support
 
-This project is open source and **not a supported product**.
+This project uses GitHub Issues to track bugs and feature requests.
+Please search the existing issues before filing new issues to avoid duplicates.
 
-If you are experiencing problems, have a feature request, or a question, please check for an [issue] on GitHub.
-If you do not see your problem captured, please file a new issue, and follow the provided template.
+- For new issues, file your bug or feature request as a new [issue].
+- For help, discussion, and support questions about using this project, join or start a [discussion].
 
 If you have any problems with the [PSRule][engine] engine, please check the project GitHub [issues](https://github.com/Microsoft/PSRule/issues) page instead.
+
+Support for this project/ product is limited to the resources listed above.
 
 ## Getting the modules
 
@@ -111,6 +114,7 @@ or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any addi
 This project is [licensed under the MIT License](LICENSE).
 
 [issue]: https://github.com/Microsoft/PSRule.Rules.GitHub/issues
+[discussion]: https://github.com/Microsoft/PSRule.Rules.GitHub/discussions
 [install]: docs/install-instructions.md
 [ci-badge]: https://dev.azure.com/bewhite/PSRule.Rules.GitHub/_apis/build/status/PSRule.Rules.GitHub-CI?branchName=main
 [module]: https://www.powershellgallery.com/packages/PSRule.Rules.GitHub

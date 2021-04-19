@@ -63,6 +63,12 @@ namespace PSRule.Rules.GitHub.Data
         public CommunityProfile CommunityProfile { get; internal set; }
 
         public IEnumerable<string> CommunityFiles { get; internal set; }
+
+        public bool IsTemplate { get; internal set; }
+
+        public bool? DeleteBranchOnMerge { get; internal set; }
+
+        public string Visibility { get; internal set; }
     }
 
     public sealed class Branch
@@ -104,6 +110,14 @@ namespace PSRule.Rules.GitHub.Data
         public bool? RequireUpToDate { get; internal set; }
 
         public IEnumerable<string> RequireStatusChecks { get; internal set; }
+
+        public bool RequirePullRequestReviews { get; internal set; }
+
+        public bool? DismissStaleReviews { get; internal set; }
+
+        public bool? RequireCodeOwnerReviews { get; internal set; }
+
+        public int? RequiredApprovingReviewCount { get; internal set; }
     }
 
     public sealed class BranchStatus
