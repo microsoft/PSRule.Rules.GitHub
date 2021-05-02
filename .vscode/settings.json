@@ -22,6 +22,7 @@
         "**/.azure-pipelines/jobs/*.yaml": "azure-pipelines"
     },
     "cSpell.words": [
+        "Octokit",
         "cmdlets"
     ],
     "cSpell.enabledLanguageIds": [
