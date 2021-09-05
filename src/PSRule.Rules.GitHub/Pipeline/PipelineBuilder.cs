@@ -5,8 +5,6 @@ using PSRule.Rules.GitHub.Configuration;
 using PSRule.Rules.GitHub.Pipeline.Output;
 using System;
 using System.Management.Automation;
-using System.Net;
-using System.Security;
 
 namespace PSRule.Rules.GitHub.Pipeline
 {
@@ -97,28 +95,6 @@ namespace PSRule.Rules.GitHub.Pipeline
         protected virtual PipelineWriter GetOutput()
         {
             return _Output;
-        }
-
-        protected static bool TryGetEnvironmentVariableString(string variable, out string value)
-        {
-            value = null;
-            var v = Environment.GetEnvironmentVariable(variable);
-            if (string.IsNullOrEmpty(v))
-                return false;
-
-            value = v;
-            return true;
-        }
-
-        protected static bool TryGetEnvironmentVariableSecureString(string variable, out SecureString value)
-        {
-            value = null;
-            var v = Environment.GetEnvironmentVariable(variable);
-            if (string.IsNullOrEmpty(v))
-                return false;
-
-            value = new NetworkCredential("na", v).SecurePassword;
-            return true;
         }
     }
 
