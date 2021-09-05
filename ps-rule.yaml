@@ -1,10 +1,29 @@
-# PSRule options for QA
+#
+# PSRule configuration
+#
+
+# Please see the documentation for all configuration options:
+# https://microsoft.github.io/PSRule/
+
+input:
+  pathIgnore:
+  - '.vscode/'
+  - '*.md'
+  - '*.Designer.cs'
+  - '*.resx'
+  - '*.sln'
+  - '*.txt'
+  - '*.html'
+  - '*.ico'
+
+include:
+  path: []
 
 output:
   culture:
   - en-US
 
-input:
-  pathIgnore:
-  # Dynamically generated
-  - '*.Designer.cs'
+configuration:
+  # Authoring rules
+  RULE_AUTHORING_ONLINE_HELP: 'https://microsoft.github.io/PSRule.Rules.GitHub/en/rules/'
+  RULE_AUTHORING_PREFIX: 'GitHub'
