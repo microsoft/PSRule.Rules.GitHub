@@ -34,17 +34,64 @@ PSRule.Rules.GitHub | Validate GitHub repositories using PSRule. | [latest][modu
 
 ## Getting started
 
-### Export repository
+### Using with GitHub Actions
 
-To validate a GitHub repository, first export configuration data with the `Export-GitHubRuleData` cmdlet.
+The following example shows how to setup GitHub Actions to validate GitHub repositories.
+
+1. See [Creating a workflow file][create-workflow].
+2. Reference `Microsoft/ps-rule` with `modules: 'PSRule.Rules.GitHub'`.
+
+For example:
+
+```yaml
+# Example: .github/workflows/analyze-gh.yaml
+
+#
+# STEP 1: Repository validation
+#
+name: Analyze repository
+on:
+- push
+jobs:
+  analyze_arm:
+    name: Analyze repository
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    # STEP 2: Run analysis against exported data
+    - name: Analyze repository
+      uses: Microsoft/ps-rule@main
+      with:
+        modules: 'PSRule.Rules.GitHub'
+        # Pre-release modules are required until PSRule.Rules.GitHub v0.1.0 is released
+        prerelease: true
+```
+
+### Using locally
+
+The following example shows how to setup PSRule locally to validate templates pre-flight.
+
+1. Install the `PSRule.Rules.GitHub` module and dependencies from the PowerShell Gallery.
+2. Export repository data for analysis.
+3. Run analysis against a GitHub repository.
 
 For example:
 
 ```powershell
-# Export repository configuration data for Microsoft/PSRule
+# STEP 1: Install PSRule.Rules.GitHub from the PowerShell Gallery
+Install-Module -Name 'PSRule.Rules.GitHub' -Scope CurrentUser;
+
+# STEP 2: Export repository configuration data for Microsoft/PSRule
 Export-GitHubRuleData -Repository 'Microsoft/PSRule';
+
+# STEP 3: Run analysis against exported data
+Assert-PSRule -Module 'PSRule.Rules.GitHub' -InputPath '.\*.json' -Format File;
 ```
 
+The `Export-GitHubRuleData` cmdlet exports repository data to JSON.
 To export multiple repositories:
 
 - Comma separate each repository.
@@ -55,16 +102,6 @@ Authenticate to export private repositories by:
 - Using `-Credential` to specify a `PSCredential` object with a personal access token (PAT).
 The username of `PSCredential` is ignored.
 - Using `-UseGitHubToken` to read a PAT token from the `GITHUB_TOKEN` environment variable.
-
-### Validate repositories
-
-To validate a GitHub repository using the extracted data use the `Assert-PSRule` cmdlet.
-
-For example:
-
-```powershell
-Assert-PSRule -InputPath .\*.json -Module 'PSRule.Rules.GitHub';
-```
 
 For advanced usage, see [Assert-PSRule](https://microsoft.github.io/PSRule/commands/PSRule/en-US/Assert-PSRule.html) help.
 

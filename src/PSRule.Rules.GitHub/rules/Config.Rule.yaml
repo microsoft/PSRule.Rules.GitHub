@@ -14,11 +14,12 @@ spec:
     - RepositoryName
     targetType:
     - Type
-
+  convention:
+    include:
+    - GitHub.ExpandRepository
   output:
     culture:
     - 'en'
-
   configuration:
     GitHub_BranchName_Format: ''
     GitHub_BranchName_Disallowed:

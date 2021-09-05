@@ -40,7 +40,7 @@ namespace PSRule.Rules.GitHub.Pipeline
         {
             if (repository == null)
             {
-                if (TryGetEnvironmentVariableString(GITHUB_REPOSITORY, out string repo))
+                if (PSRuleOption.TryGetEnvironmentVariableString(GITHUB_REPOSITORY, out string repo))
                     _Repository = new string[] { repo };
 
                 return;
@@ -57,7 +57,7 @@ namespace PSRule.Rules.GitHub.Pipeline
         {
             if (_UseGitHubToken && credential == null)
             {
-                if (TryGetEnvironmentVariableSecureString(GITHUB_TOKEN, out SecureString token))
+                if (PSRuleOption.TryGetEnvironmentVariableSecureString(GITHUB_TOKEN, out SecureString token))
                     _Credential = new PSCredential("token", token);
 
                 return;
@@ -134,23 +134,17 @@ namespace PSRule.Rules.GitHub.Pipeline
 
     internal sealed class ExportPipeline : PipelineBase
     {
-        private const string PROPERTY_BRANCHES = "Branches";
-        private const string PROPERTY_LABELS = "Labels";
-        private const string PROPERTY_MILESTONES = "Milestones";
-        private const string PROPERTY_RELEASES = "Releases";
-        private const string PROPERTY_TAGS = "Tags";
-
         private readonly GitHubContext _ServiceContext;
-        private readonly GitHubClient _Client;
+        private readonly RepositoryHelper _Helper;
 
         // Track whether Dispose has been called.
-        private bool _Disposed = false;
+        private bool _Disposed;
 
         internal ExportPipeline(PipelineContext context, PipelineWriter writer, GitHubContext serviceContext)
             : base(context, writer)
         {
             _ServiceContext = serviceContext;
-            _Client = new GitHubClient(_ServiceContext);
+            _Helper = new RepositoryHelper(serviceContext);
         }
 
         public override void End()
@@ -163,30 +157,9 @@ namespace PSRule.Rules.GitHub.Pipeline
 
         internal void ProcessRepository(string repositorySlug)
         {
-            var repos = _Client.GetRepository(repositorySlug);
-            for (var r = 0; r < repos.Length; r++)
-            {
-                var repo = PSObject.AsPSObject(repos[r]);
-                var branches = _Client.GetBranches(repos[r].Owner, repos[r].Name);
-                var labels = _Client.GetLabels(repos[r].Owner, repos[r].Name);
-                var milestones = _Client.GetMilestones(repos[r].Owner, repos[r].Name);
-                var releases = _Client.GetReleases(repos[r].Owner, repos[r].Name);
-                var tags = _Client.GetTags(repos[r].Owner, repos[r].Name);
-
-                repo.Properties.Add(new PSNoteProperty(PROPERTY_BRANCHES, branches));
-                repo.Properties.Add(new PSNoteProperty(PROPERTY_LABELS, labels));
-                repo.Properties.Add(new PSNoteProperty(PROPERTY_MILESTONES, milestones));
-                repo.Properties.Add(new PSNoteProperty(PROPERTY_RELEASES, releases));
-                repo.Properties.Add(new PSNoteProperty(PROPERTY_TAGS, tags));
-                Writer.WriteObject(repo, false);
-
-                // Write branches as separate objects
-                for (var b = 0; b < branches.Length; b++)
-                {
-                    var branch = PSObject.AsPSObject(branches[b]);
-                    Writer.WriteObject(branch, false);
-                }
-            }
+            var o = _Helper.Get(repositorySlug);
+            if (o.Length > 0)
+                Writer.WriteObject(o, true);
         }
 
         protected override void Dispose(bool disposing)
@@ -194,9 +167,8 @@ namespace PSRule.Rules.GitHub.Pipeline
             if (!_Disposed)
             {
                 if (disposing)
-                {
                     _ServiceContext.Dispose();
-                }
+
                 _Disposed = true;
             }
             base.Dispose(disposing);
