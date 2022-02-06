@@ -8,29 +8,34 @@
 [CmdletBinding()]
 param ()
 
-# Setup error handling
-$ErrorActionPreference = 'Stop';
-Set-StrictMode -Version latest;
+BeforeAll {
+    # Setup error handling
+    $ErrorActionPreference = 'Stop';
+    Set-StrictMode -Version latest;
 
-if ($Env:SYSTEM_DEBUG -eq 'true') {
-    $VerbosePreference = 'Continue';
+    if ($Env:SYSTEM_DEBUG -eq 'true') {
+        $VerbosePreference = 'Continue';
+    }
+
+    # Setup tests paths
+    $rootPath = $PWD;
+    Import-Module (Join-Path -Path $rootPath -ChildPath out/modules/PSRule.Rules.GitHub) -Force;
+    $here = (Resolve-Path $PSScriptRoot).Path;
 }
 
-# Setup tests paths
-$rootPath = $PWD;
-Import-Module (Join-Path -Path $rootPath -ChildPath out/modules/PSRule.Rules.GitHub) -Force;
-$here = (Resolve-Path $PSScriptRoot).Path;
-
 Describe 'GitHub.Repo' -Tag 'Repository' {
-    $dataPath = Join-Path -Path $here -ChildPath 'Resources.Repo.1.json';
+    BeforeAll {
+        $dataPath = Join-Path -Path $here -ChildPath 'Resources.Repo.1.json';
+    }
 
     Context 'Conditions' {
-        $invokeParams = @{
-            Module = 'PSRule.Rules.GitHub'
-            WarningAction = 'Ignore'
-            ErrorAction = 'Stop'
+        BeforeAll {
+            $invokeParams = @{
+                Module = 'PSRule.Rules.GitHub'
+                WarningAction = 'Ignore'
+                ErrorAction = 'Stop'
+            }
         }
-        
 
         It 'GitHub.Repo.Protected' {
             $filteredResult = Invoke-PSRule @invokeParams -InputPath $dataPath -Name 'GitHub.Repo.Protected';

@@ -1,11 +1,11 @@
 ﻿// Copyright (c) Microsoft Corporation.
 // Licensed under the MIT License.
 
-using PSRule.Rules.GitHub.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Management.Automation;
 using System.Threading;
+using PSRule.Rules.GitHub.Configuration;
 
 namespace PSRule.Rules.GitHub.Pipeline
 {
@@ -38,7 +38,7 @@ namespace PSRule.Rules.GitHub.Pipeline
         {
             if (_Writer == null)
                 return;
-            
+
             _Writer.Begin();
         }
 

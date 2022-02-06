@@ -1,8 +1,8 @@
 ﻿// Copyright (c) Microsoft Corporation.
 // Licensed under the MIT License.
 
-using Newtonsoft.Json;
 using System.Net.Http;
+using Newtonsoft.Json;
 
 namespace PSRule.Rules.GitHub
 {
