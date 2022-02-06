@@ -19,8 +19,8 @@ namespace PSRule.Rules.GitHub.Runtime
 
         public static PSObject[] GetRepository()
         {
-            var repos = PSRuleOption.TryGetEnvironmentVariableString(GITHUB_REPOSITORY, out string repo) ? new string[] { repo } : null;
-            var credential = PSRuleOption.TryGetEnvironmentVariableSecureString(GITHUB_TOKEN, out SecureString token) ? new PSCredential("token", token) : null;
+            var repos = PSRuleOption.TryGetEnvironmentVariableString(GITHUB_REPOSITORY, out var repo) ? new string[] { repo } : null;
+            var credential = PSRuleOption.TryGetEnvironmentVariableSecureString(GITHUB_TOKEN, out var token) ? new PSCredential("token", token) : null;
             if (repos == null || repos.Length == 0 || credential == null)
                 return Array.Empty<PSObject>();
 
