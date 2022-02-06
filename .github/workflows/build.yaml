@@ -20,6 +20,8 @@ jobs:
 
     - name: Run PSRule self analysis
       shell: pwsh
+      env:
+        GITHUB_REPOSITORY: ${{ env.GITHUB_REPOSITORY }}
       run: |
         . ./.azure-pipelines/pipeline-deps.ps1
         Invoke-Build Build -AssertStyle GitHubActions
