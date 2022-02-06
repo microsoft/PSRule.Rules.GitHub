@@ -40,7 +40,7 @@ namespace PSRule.Rules.GitHub.Pipeline
         {
             if (repository == null)
             {
-                if (PSRuleOption.TryGetEnvironmentVariableString(GITHUB_REPOSITORY, out string repo))
+                if (PSRuleOption.TryGetEnvironmentVariableString(GITHUB_REPOSITORY, out var repo))
                     _Repository = new string[] { repo };
 
                 return;
@@ -57,7 +57,7 @@ namespace PSRule.Rules.GitHub.Pipeline
         {
             if (_UseGitHubToken && credential == null)
             {
-                if (PSRuleOption.TryGetEnvironmentVariableSecureString(GITHUB_TOKEN, out SecureString token))
+                if (PSRuleOption.TryGetEnvironmentVariableSecureString(GITHUB_TOKEN, out var token))
                     _Credential = new PSCredential("token", token);
 
                 return;

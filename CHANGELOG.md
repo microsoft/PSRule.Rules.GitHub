@@ -4,6 +4,12 @@
 
 What's changed since pre-release v0.1.0-B2109006:
 
+- New rules:
+  - Community files:
+    - Use recommended community files. [#3](https://github.com/microsoft/PSRule.Rules.GitHub/issues/3)
+      - Added checks for license and description.
+      - Added checks for PR templates.
+      - Added checks for issue templates.
 - Engineering:
   - Bump PSRule dependency to v1.11.0. [#91](https://github.com/microsoft/PSRule.Rules.GitHub/pull/91)
 

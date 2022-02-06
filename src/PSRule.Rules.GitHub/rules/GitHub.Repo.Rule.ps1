@@ -32,5 +32,39 @@ Rule 'GitHub.Repo.Readme' -Type 'api.github.com/repos' -If { !$TargetObject.Fork
 Rule 'GitHub.Repo.CodeOwners' -Type 'api.github.com/repos' -If { !$TargetObject.Fork } {
     $Assert.
         In($TargetObject, 'CommunityFiles', @('CODEOWNERS', '.github/CODEOWNERS', 'docs/CODEOWNERS')).
-        Reason($LocalizedData.RepositoryFileNotExist, 'CODEOWNERS')
+        Reason($LocalizedData.RepositoryFileNotExist, 'CODEOWNERS');
+}
+
+# Synopsis: Use LICENSE file in default branch.
+Rule 'GitHub.Repo.License' -Type 'api.github.com/repos' -If { !$TargetObject.Private -and !$TargetObject.Fork } {
+    $Assert.
+        In($TargetObject, 'CommunityFiles', @('LICENSE', 'LICENSE.txt', 'LICENSE.md', 'LICENSE.rst')).
+        Reason($LocalizedData.RepositoryFileNotExist, 'LICENSE');
+}
+
+# Synopsis: Define a description for the repository.
+Rule 'GitHub.Repo.Description' -Type 'api.github.com/repos' -If { !$TargetObject.Fork } {
+    $Assert.HasFieldValue($TargetObject, 'description');
+}
+
+# Synopsis: Use one or more issue templates.
+Rule 'GitHub.Repo.IssueTempate' -Type 'api.github.com/repos' -If { !$TargetObject.Fork } {
+    $issueTemplates = @($TargetObject.CommunityFiles | Where-Object {
+        $_ -like ".github/ISSUE_TEMPLATE/*"
+    });
+    $Assert.
+        GreaterOrEqual($issueTemplates, '.', 1).
+        Reason($LocalizedData.IssueTemplates);
+}
+
+# Synopsis: Use a .github/PULL_REQUEST_TEMPLATE.md file in default branch.
+Rule 'GitHub.Repo.PRTemplate' -Type 'api.github.com/repos' -If { !$TargetObject.Fork } {
+    $Assert.
+        In($TargetObject, 'CommunityFiles', @(
+            'pull_request_template.md',
+            '.github/pull_request_template.md',
+            '.github/PULL_REQUEST_TEMPLATE/pull_request_template.md',
+            'docs/pull_request_template.md'
+        )).
+        Reason($LocalizedData.RepositoryFileNotExist, '.github/pull_request_template.md');
 }

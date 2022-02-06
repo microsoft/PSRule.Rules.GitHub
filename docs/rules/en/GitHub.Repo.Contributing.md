@@ -24,5 +24,5 @@ Consider creating a CONTRIBUTING.md file in the default branch to communicate ho
 
 ## LINKS
 
-- [Setting guidelines for repository contributors](https://docs.github.com/en/github/building-a-strong-community/setting-guidelines-for-repository-contributors)
+- [Setting guidelines for repository contributors](https://docs.github.com/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)
 - [Writing your contributing guidelines](https://opensource.guide/starting-a-project/#writing-your-contributing-guidelines)
