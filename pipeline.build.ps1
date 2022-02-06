@@ -135,7 +135,7 @@ task ReleaseModule VersionModule, {
         Write-Error -Message "[ReleaseModule] -- Module path does not exist";
     }
     elseif (![String]::IsNullOrEmpty($ApiKey)) {
-        Publish-Module -Path $modulePath -NuGetApiKey $ApiKey;
+        Publish-Module -Path $modulePath -NuGetApiKey $ApiKey -Force:$forcePublish;
     }
 }
 
