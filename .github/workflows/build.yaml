@@ -1,0 +1,32 @@
+# CI workflow for validating action
+name: Build
+on:
+  push:
+    branches: [ main, 'release/*' ]
+  pull_request:
+    branches: [ main, 'release/*' ]
+
+jobs:
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+
+    - name: Checkout
+      uses: actions/checkout@v2.4.0
+
+    - name: Build
+      shell: pwsh
+      run: |
+        . ./.azure-pipelines/pipeline-deps.ps1
+        Invoke-Build Build -AssertStyle GitHubActions
+        Invoke-Build IntegrationTest -AssertStyle GitHubActions
+        Import-Module out/modules/PSRule.Rules.GitHub
+
+    - name: Run PSRule self analysis
+      uses: Microsoft/ps-rule@main
+      with:
+        modules: PSRule.Rules.GitHub

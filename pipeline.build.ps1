@@ -230,18 +230,40 @@ task TestModule ModuleDependencies, {
 
 task IntegrationTest ModuleDependencies, {
     # Run Pester tests
-    $pesterParams = @{ Path = (Join-Path -Path $PWD -ChildPath tests/Integration); OutputFile = 'reports/pester-unit.xml'; OutputFormat = 'NUnitXml'; PesterOption = @{ IncludeVSCodeMarker = $True }; PassThru = $True; };
+    $pesterOptions = @{
+        Run = @{
+            Path = (Join-Path -Path $PWD -ChildPath tests/Integration);
+            PassThru = $True;
+        };
+        TestResult = @{
+            Enabled = $True;
+            OutputFormat = 'NUnitXml';
+            OutputPath = 'reports/pester-unit.xml';
+        };
+    };
 
     if ($CodeCoverage) {
-        $pesterParams.Add('CodeCoverage', (Join-Path -Path $PWD -ChildPath 'out/modules/**/*.psm1'));
-        $pesterParams.Add('CodeCoverageOutputFile', (Join-Path -Path $PWD -ChildPath 'reports/pester-coverage.xml'));
+        $codeCoverageOptions = @{
+            Enabled = $True;
+            OutputPath = (Join-Path -Path $PWD -ChildPath 'reports/pester-coverage.xml');
+            Path = (Join-Path -Path $PWD -ChildPath 'out/modules/**/*.psm1');
+        };
+
+        $pesterOptions.Add('CodeCoverage', $codeCoverageOptions);
     }
 
     if (!(Test-Path -Path reports)) {
         $Null = New-Item -Path reports -ItemType Directory -Force;
     }
 
-    $results = Invoke-Pester @pesterParams;
+    if ($Null -ne $TestGroup) {
+        $pesterOptions.Add('Filter', @{ Tag = $TestGroup });
+    }
+
+    # https://pester.dev/docs/commands/New-PesterConfiguration
+    $pesterConfiguration = New-PesterConfiguration -Hashtable $pesterOptions;
+
+    $results = Invoke-Pester -Configuration $pesterConfiguration;
 
     # Throw an error if pester tests failed
     if ($Null -eq $results) {
