@@ -1,13 +1,13 @@
 ﻿// Copyright (c) Microsoft Corporation.
 // Licensed under the MIT License.
 
-using Newtonsoft.Json;
-using PSRule.Rules.GitHub.Pipeline;
-using PSRule.Rules.GitHub.Resources;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Management.Automation;
+using Newtonsoft.Json;
+using PSRule.Rules.GitHub.Pipeline;
+using PSRule.Rules.GitHub.Resources;
 
 namespace PSRule.Rules.GitHub
 {

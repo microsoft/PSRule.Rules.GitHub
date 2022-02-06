@@ -8,6 +8,6 @@ namespace PSRule.Rules.GitHub.Pipeline
     /// </summary>
     internal static class LoggingExtensions
     {
-        
+
     }
 }

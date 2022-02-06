@@ -1,11 +1,11 @@
 ﻿// Copyright (c) Microsoft Corporation.
 // Licensed under the MIT License.
 
-using PSRule.Rules.GitHub.Configuration;
-using PSRule.Rules.GitHub.Pipeline;
 using System;
 using System.Management.Automation;
 using System.Security;
+using PSRule.Rules.GitHub.Configuration;
+using PSRule.Rules.GitHub.Pipeline;
 
 namespace PSRule.Rules.GitHub.Runtime
 {

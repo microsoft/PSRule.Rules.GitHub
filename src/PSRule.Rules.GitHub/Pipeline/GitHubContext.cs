@@ -1,13 +1,13 @@
 ﻿// Copyright (c) Microsoft Corporation.
 // Licensed under the MIT License.
 
-using Octokit;
 using System;
 using System.Diagnostics;
 using System.Management.Automation;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Reflection;
+using Octokit;
 
 namespace PSRule.Rules.GitHub.Pipeline
 {
@@ -54,7 +54,7 @@ namespace PSRule.Rules.GitHub.Pipeline
             {
                 if (disposing)
                 {
-                    
+
                 }
                 _Disposed = true;
             }
