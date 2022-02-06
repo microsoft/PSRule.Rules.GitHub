@@ -4,7 +4,7 @@
 variables:
   version: '0.1.0'
   buildConfiguration: 'Release'
-  imageName: 'ubuntu-18.04'
+  imageName: 'ubuntu-20.04'
 
 resources:
   pipelines:
