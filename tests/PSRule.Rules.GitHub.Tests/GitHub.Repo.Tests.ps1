@@ -116,5 +116,69 @@ Describe 'GitHub.Repo' -Tag 'Repository' {
             $ruleResult.Length | Should -Be 1;
             $ruleResult.TargetName | Should -BeIn 'org/repository-A';
         }
+
+        It 'GitHub.Repo.License' {
+            $filteredResult = Invoke-PSRule @invokeParams -InputPath $dataPath -Name 'GitHub.Repo.License';
+
+            # Fail
+            $ruleResult = @($filteredResult | Where-Object { $_.Outcome -eq 'Fail' });
+            $ruleResult | Should -Not -BeNullOrEmpty;
+            $ruleResult.Length | Should -Be 1;
+            $ruleResult.TargetName | Should -BeIn 'org/repository-B';
+
+            # Pass
+            $ruleResult = @($filteredResult | Where-Object { $_.Outcome -eq 'Pass' });
+            $ruleResult | Should -Not -BeNullOrEmpty;
+            $ruleResult.Length | Should -Be 1;
+            $ruleResult.TargetName | Should -BeIn 'org/repository-A';
+        }
+
+        It 'GitHub.Repo.Description' {
+            $filteredResult = Invoke-PSRule @invokeParams -InputPath $dataPath -Name 'GitHub.Repo.Description';
+
+            # Fail
+            $ruleResult = @($filteredResult | Where-Object { $_.Outcome -eq 'Fail' });
+            $ruleResult | Should -Not -BeNullOrEmpty;
+            $ruleResult.Length | Should -Be 1;
+            $ruleResult.TargetName | Should -BeIn 'org/repository-B';
+
+            # Pass
+            $ruleResult = @($filteredResult | Where-Object { $_.Outcome -eq 'Pass' });
+            $ruleResult | Should -Not -BeNullOrEmpty;
+            $ruleResult.Length | Should -Be 1;
+            $ruleResult.TargetName | Should -BeIn 'org/repository-A';
+        }
+
+        It 'GitHub.Repo.IssueTempate' {
+            $filteredResult = Invoke-PSRule @invokeParams -InputPath $dataPath -Name 'GitHub.Repo.IssueTempate';
+
+            # Fail
+            $ruleResult = @($filteredResult | Where-Object { $_.Outcome -eq 'Fail' });
+            $ruleResult | Should -Not -BeNullOrEmpty;
+            $ruleResult.Length | Should -Be 1;
+            $ruleResult.TargetName | Should -BeIn 'org/repository-B';
+
+            # Pass
+            $ruleResult = @($filteredResult | Where-Object { $_.Outcome -eq 'Pass' });
+            $ruleResult | Should -Not -BeNullOrEmpty;
+            $ruleResult.Length | Should -Be 1;
+            $ruleResult.TargetName | Should -BeIn 'org/repository-A';
+        }
+
+        It 'GitHub.Repo.PRTemplate' {
+            $filteredResult = Invoke-PSRule @invokeParams -InputPath $dataPath -Name 'GitHub.Repo.PRTemplate';
+
+            # Fail
+            $ruleResult = @($filteredResult | Where-Object { $_.Outcome -eq 'Fail' });
+            $ruleResult | Should -Not -BeNullOrEmpty;
+            $ruleResult.Length | Should -Be 1;
+            $ruleResult.TargetName | Should -BeIn 'org/repository-B';
+
+            # Pass
+            $ruleResult = @($filteredResult | Where-Object { $_.Outcome -eq 'Pass' });
+            $ruleResult | Should -Not -BeNullOrEmpty;
+            $ruleResult.Length | Should -Be 1;
+            $ruleResult.TargetName | Should -BeIn 'org/repository-A';
+        }
     }
 }

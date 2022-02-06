@@ -1151,7 +1151,7 @@
         "Name": "repository-B",
         "FullName": "org/repository-B",
         "RepositoryName": "org/repository-B",
-        "Description": "Validate objects using PowerShell rules.",
+        "Description": "",
         "Private": false,
         "Fork": false,
         "Archived": false,
@@ -1175,13 +1175,7 @@
             "License": true,
             "ReadMe": true
         },
-        "CommunityFiles": [
-            "LICENSE",
-            "SECURITY.md",
-            ".github/PULL_REQUEST_TEMPLATE.md",
-            ".github/ISSUE_TEMPLATE/bug_report.md",
-            ".github/ISSUE_TEMPLATE/feature_request.md"
-        ],
+        "CommunityFiles": [],
         "IsTemplate": false,
         "DeleteBranchOnMerge": true,
         "Visibility": "Public"
