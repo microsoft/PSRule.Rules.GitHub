@@ -8,7 +8,7 @@
 # Synopsis: Expand the current GitHub repository.
 Export-PSRuleConvention 'GitHub.ExpandRepository' -If { ![String]::IsNullOrEmpty($Env:GITHUB_REPOSITORY) -and $TargetObject -is [PSRule.Data.RepositoryInfo] } -Begin {
     try {
-        $PSRule.Import([PSRule.Rules.GitHub.Runtime]::GetRepository());
+        $PSRule.Import([PSRule.Rules.GitHub.Runtime.Helper]::GetRepository());
     }
     catch {
         Write-Error $_
