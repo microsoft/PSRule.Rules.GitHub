@@ -13,7 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      metadata: read
     steps:
 
     - name: Checkout
@@ -27,10 +26,3 @@ jobs:
         . ./.azure-pipelines/pipeline-deps.ps1
         Invoke-Build Build -AssertStyle GitHubActions
         Invoke-Build IntegrationTest -AssertStyle GitHubActions
-        Import-Module ./out/modules/PSRule.Rules.GitHub/
-        Assert-PSRule -InputPath . -Format File -Module PSRule.Rules.GitHub -Style GitHubActions
-
-    # - name: Run PSRule self analysis
-    #   uses: Microsoft/ps-rule@main
-    #   with:
-    #     modules: PSRule.Rules.GitHub
