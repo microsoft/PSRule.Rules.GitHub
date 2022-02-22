@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+What's changed since v0.1.0:
+
+- Engineering:
+  - Bump PSRule dependency to v1.11.1. [#101](https://github.com/microsoft/PSRule.Rules.GitHub/pull/101)
+
 ## v0.1.0
 
 - Initial release.
