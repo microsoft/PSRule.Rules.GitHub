@@ -5,7 +5,7 @@
 What's changed since v0.1.0:
 
 - Engineering:
-  - Bump PSRule dependency to v1.11.1. [#101](https://github.com/microsoft/PSRule.Rules.GitHub/pull/101)
+  - Bump PSRule dependency to v2.0.0. [#105](https://github.com/microsoft/PSRule.Rules.GitHub/pull/105)
 
 ## v0.1.0
 
