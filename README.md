@@ -2,13 +2,18 @@
 
 A suite of rules to validate GitHub repositories using PSRule.
 
-![ci-badge]
+[![Open in vscode.dev](https://img.shields.io/badge/Open%20in-vscode.dev-blue)][1]
 
 Features of PSRule for GitHub include:
 
-- [Ready to go](docs/features.md#ready-to-go) - Leverage pre-built rules.
-- [DevOps](docs/features.md#devops) - Validate repositories throughout their lifecycle.
-- [Cross-platform](docs/features.md#cross-platform) - Run with GitHub Actions or other CI integrations.
+- [Ready to go][2] - Leverage pre-built rules.
+- [DevOps][3] - Validate repositories throughout their lifecycle.
+- [Cross-platform][4] - Run with GitHub Actions or other CI integrations.
+
+  [1]: https://vscode.dev/github/microsoft/PSRule.Rules.GitHub
+  [2]: docs/features.md#ready-to-go
+  [3]: docs/features.md#devops
+  [4]: docs/features.md#cross-platform
 
 ## Support
 
