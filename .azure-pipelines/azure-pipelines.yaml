@@ -162,14 +162,14 @@ stages:
       name: ps_7_2_ubuntu_18_04
       displayName: 'PowerShell 7.2 - ubuntu-18.04'
       imageName: mcr.microsoft.com/powershell
-      imageTag: 7.2.1-ubuntu-18.04
+      imageTag: 7.2.2-ubuntu-18.04
 
   - template: jobs/testContainer.yaml
     parameters:
       name: ps_7_2_ubuntu_20_04
       displayName: 'PowerShell 7.2 - ubuntu-20.04'
       imageName: mcr.microsoft.com/powershell
-      imageTag: 7.2.1-ubuntu-20.04
+      imageTag: 7.2.2-ubuntu-20.04
 
 # Release pipeline
 - stage: Release
@@ -211,7 +211,7 @@ stages:
         action: edit
         tag: '$(Build.SourceBranchName)'
         releaseNotesSource: inline
-        releaseNotesInline: 'See [change log](https://github.com/Microsoft/PSRule.Rules.GitHub/blob/main/CHANGELOG.md)'
+        releaseNotesInline: 'See [change log](https://github.com/microsoft/PSRule.Rules.GitHub/blob/main/CHANGELOG.md)'
         assetUploadMode: replace
         addChangeLog: false
         isPreRelease: $(isPreRelease)
