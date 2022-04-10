@@ -23,7 +23,7 @@ Please search the existing issues before filing new issues to avoid duplicates.
 - For new issues, file your bug or feature request as a new [issue].
 - For help, discussion, and support questions about using this project, join or start a [discussion].
 
-If you have any problems with the [PSRule][engine] engine, please check the project GitHub [issues](https://github.com/Microsoft/PSRule/issues) page instead.
+If you have any problems with the [PSRule][engine] engine, please check the project GitHub [issues](https://github.com/microsoft/PSRule/issues) page instead.
 
 Support for this project/ product is limited to the resources listed above.
 
@@ -44,7 +44,7 @@ PSRule.Rules.GitHub | Validate GitHub repositories using PSRule. | [latest][modu
 The following example shows how to setup GitHub Actions to validate GitHub repositories.
 
 1. See [Creating a workflow file][create-workflow].
-2. Reference `Microsoft/ps-rule` with `modules: 'PSRule.Rules.GitHub'`.
+2. Reference `microsoft/ps-rule` with `modules: 'PSRule.Rules.GitHub'`.
 
 For example:
 
@@ -64,15 +64,13 @@ jobs:
     steps:
 
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     # STEP 2: Run analysis against exported data
     - name: Analyze repository
-      uses: Microsoft/ps-rule@main
+      uses: microsoft/ps-rule@v2.0.0
       with:
         modules: 'PSRule.Rules.GitHub'
-        # Pre-release modules are required until PSRule.Rules.GitHub v0.1.0 is released
-        prerelease: true
 ```
 
 ### Using locally
@@ -108,7 +106,7 @@ Authenticate to export private repositories by:
 The username of `PSCredential` is ignored.
 - Using `-UseGitHubToken` to read a PAT token from the `GITHUB_TOKEN` environment variable.
 
-For advanced usage, see [Assert-PSRule](https://microsoft.github.io/PSRule/commands/PSRule/en-US/Assert-PSRule.html) help.
+For advanced usage, see [Assert-PSRule](https://microsoft.github.io/PSRule/v2/commands/PSRule/en-US/Assert-PSRule/) help.
 
 ## Rule reference
 
@@ -155,9 +153,8 @@ or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any addi
 
 This project is [licensed under the MIT License](LICENSE).
 
-[issue]: https://github.com/Microsoft/PSRule.Rules.GitHub/issues
-[discussion]: https://github.com/Microsoft/PSRule.Rules.GitHub/discussions
+[issue]: https://github.com/microsoft/PSRule.Rules.GitHub/issues
+[discussion]: https://github.com/microsoft/PSRule.Rules.GitHub/discussions
 [install]: docs/install-instructions.md
-[ci-badge]: https://dev.azure.com/bewhite/PSRule.Rules.GitHub/_apis/build/status/PSRule.Rules.GitHub-CI?branchName=main
 [module]: https://www.powershellgallery.com/packages/PSRule.Rules.GitHub
-[engine]: https://github.com/Microsoft/PSRule
+[engine]: https://github.com/microsoft/PSRule
