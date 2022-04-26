@@ -5,14 +5,15 @@
 What's changed since pre-release v0.2.0-B2204007:
 
 - Engineering:
-  - Bump PSRule dependency to v2.0.1. [#108](https://github.com/microsoft/PSRule.Rules.GitHub/pull/108)
+  - Bump PSRule to v2.0.1. [#108](https://github.com/microsoft/PSRule.Rules.GitHub/pull/108)
+  - Bump Pester to 5.3.2. [#109](https://github.com/microsoft/PSRule.Rules.GitHub/pull/109)
 
 ## v0.2.0-B2204007 (pre-release)
 
 What's changed since v0.1.0:
 
 - Engineering:
-  - Bump PSRule dependency to v2.0.0. [#105](https://github.com/microsoft/PSRule.Rules.GitHub/pull/105)
+  - Bump PSRule to v2.0.0. [#105](https://github.com/microsoft/PSRule.Rules.GitHub/pull/105)
 
 ## v0.1.0
 
@@ -33,7 +34,7 @@ What's changed since pre-release v0.1.0-B2109006:
       - Added checks for PR templates.
       - Added checks for issue templates.
 - Engineering:
-  - Bump PSRule dependency to v1.11.0. [#91](https://github.com/microsoft/PSRule.Rules.GitHub/pull/91)
+  - Bump PSRule to v1.11.0. [#91](https://github.com/microsoft/PSRule.Rules.GitHub/pull/91)
 
 ## v0.1.0-B2109006 (pre-release)
 
@@ -42,7 +43,7 @@ What's changed since pre-release v0.1.0-B2105002:
 - New features:
   - Automatically export repository data when running in Github Actions. [#80](https://github.com/microsoft/PSRule.Rules.GitHub/issues/80)
 - Engineering:
-  - Bump PSRule dependency to v1.7.0. [#79](https://github.com/microsoft/PSRule.Rules.GitHub/issues/79)
+  - Bump PSRule to v1.7.0. [#79](https://github.com/microsoft/PSRule.Rules.GitHub/issues/79)
 
 ## v0.1.0-B2105002 (pre-release)
 
@@ -61,7 +62,7 @@ What's changed since pre-release v0.1.0-B2103003:
   - Added resource API versions. [#66](https://github.com/microsoft/PSRule.Rules.GitHub/issues/66)
 - Engineering:
   - Bump YamlDotNet to 11.1.1. [#61](https://github.com/microsoft/PSRule.Rules.GitHub/pull/61)
-  - Bump PSRule dependency to v1.2.0. [#67](https://github.com/microsoft/PSRule.Rules.GitHub/issues/67)
+  - Bump PSRule to v1.2.0. [#67](https://github.com/microsoft/PSRule.Rules.GitHub/issues/67)
     - See the [change log](https://github.com/microsoft/PSRule/blob/main/docs/CHANGELOG-v1.md#v120)
 - Bug fixes:
   - Fixed null community profile. [#65](https://github.com/microsoft/PSRule.Rules.GitHub/issues/65)
@@ -71,7 +72,7 @@ What's changed since pre-release v0.1.0-B2103003:
 What's changed since pre-release v0.1.0-B2009006:
 
 - Engineering:
-  - Bump PSRule dependency to v1.1.0. [#41](https://github.com/microsoft/PSRule.Rules.GitHub/issues/41)
+  - Bump PSRule to v1.1.0. [#41](https://github.com/microsoft/PSRule.Rules.GitHub/issues/41)
     - See the [change log](https://github.com/microsoft/PSRule/blob/main/docs/CHANGELOG-v1.md#v110)
   - Bump Octokit to 0.50.0. [#50](https://github.com/microsoft/PSRule.Rules.GitHub/pull/50)
   - Bump YamlDotNet to 9.1.4. [#46](https://github.com/microsoft/PSRule.Rules.GitHub/pull/46)
