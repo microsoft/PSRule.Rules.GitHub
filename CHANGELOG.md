@@ -7,6 +7,7 @@ What's changed since pre-release v0.2.0-B2204007:
 - Engineering:
   - Bump PSRule to v2.0.1. [#108](https://github.com/microsoft/PSRule.Rules.GitHub/pull/108)
   - Bump Pester to 5.3.2. [#109](https://github.com/microsoft/PSRule.Rules.GitHub/pull/109)
+  - Bump Octokit to 0.51.0. [#112](https://github.com/microsoft/PSRule.Rules.GitHub/pull/112)
 
 ## v0.2.0-B2204007 (pre-release)
 
