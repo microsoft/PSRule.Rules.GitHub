@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+What's changed since v0.2.0:
+
+- Engineering:
+  - Bump Octokit to v0.52.0.
+    [#124](https://github.com/microsoft/PSRule.Rules.GitHub/pull/124)
+
 ## v0.2.0
 
 What's changed since v0.1.0:
