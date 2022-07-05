@@ -30,7 +30,7 @@ Capture any error messages and or verbose messages with `-Verbose`.
 **Module in use and version:**
 
 - Module: PSRule.Rules.GitHub
-- Version: **[e.g. 0.1.0]**
+- Version: **[e.g. 0.2.0]**
 
 Captured output from `$PSVersionTable`:
 
