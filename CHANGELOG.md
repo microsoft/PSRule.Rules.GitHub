@@ -2,6 +2,24 @@
 
 ## Unreleased
 
+## v0.2.0
+
+What's changed since v0.1.0:
+
+- Engineering:
+  - Bump PSRule to v2.1.0.
+    [#117](https://github.com/microsoft/PSRule.Rules.GitHub/pull/117)
+  - Bump Pester to v5.3.3.
+    [#114](https://github.com/microsoft/PSRule.Rules.GitHub/pull/114)
+  - Bump Newtonsoft.Json to v13.0.1.
+    [#121](https://github.com/microsoft/PSRule.Rules.GitHub/pull/121)
+  - Bump Octokit to v0.51.0.
+    [#112](https://github.com/microsoft/PSRule.Rules.GitHub/pull/112)
+
+What's changed since pre-release v0.2.0-B2206003:
+
+- No additional changes.
+
 ## v0.2.0-B2206003 (pre-release)
 
 What's changed since pre-release v0.2.0-B2205009:
