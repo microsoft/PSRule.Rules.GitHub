@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+What's changed since v0.2.0:
+
+- Engineering:
+  - Bump PSRule to v2.2.0.
+    [#123](https://github.com/microsoft/PSRule.Rules.GitHub/pull/123)
+
 ## v0.2.0
 
 What's changed since v0.1.0:
