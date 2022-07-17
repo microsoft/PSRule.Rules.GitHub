@@ -1,0 +1,55 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <!-- Project defaults -->
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <NeutralLanguage>en-US</NeutralLanguage>
+  </PropertyGroup>
+
+  <!-- Package metadata -->
+  <PropertyGroup>
+    <Title>PSRule for GitHub</Title>
+    <Authors>Microsoft</Authors>
+    <AssemblyTitle>PSRule for GitHub</AssemblyTitle>
+    <RepositoryUrl>https://github.com/microsoft/PSRule.Rules.GitHub</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://aka.ms/ps-rule-github</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageTags>PSRule;GitHub;test;rules;</PackageTags>
+    <Version>0.0.1</Version>
+    <Company>Microsoft Corporation</Company>
+    <Copyright>&#169; Microsoft Corporation. All rights reserved.</Copyright>
+    <Description>A suite of rules to validate GitHub repositories using PSRule.
+
+This project uses GitHub Issues to track bugs and feature requests. See GitHub project for more information.</Description>
+    <PackageReleaseNotes>For a list of changes see https://aka.ms/ps-rule-github/changelog.</PackageReleaseNotes>
+    <PackageIcon>package_icon.png</PackageIcon>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(OS)' == 'Windows_NT'">
+    <DefineConstants>Windows</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TF_BUILD)' == 'true'">
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\docs\assets\package_icon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(PackageReadmeFile)' != ''">
+    <None Include="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+</Project>

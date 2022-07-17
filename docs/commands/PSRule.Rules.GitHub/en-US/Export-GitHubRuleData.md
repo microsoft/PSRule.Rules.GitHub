@@ -27,10 +27,10 @@ Export configuration data from one or more GitHub repositories.
 ### Example 1
 
 ```powershell
-Export-GitHubRuleData -Repository 'Microsoft/PSRule';
+Export-GitHubRuleData -Repository 'microsoft/PSRule';
 ```
 
-Exports repository configuration data for `Microsoft/PSRule`.
+Exports repository configuration data for `microsoft/PSRule`.
 
 ## PARAMETERS
 

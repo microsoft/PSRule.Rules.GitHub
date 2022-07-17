@@ -1,7 +1,7 @@
 ---
 Module Name: PSRule.Rules.GitHub
 Module Guid: d6140d02-6dff-40bb-a472-3a79af7341fc
-Download Help Link: https://github.com/Microsoft/PSRule.Rules.GitHub
+Download Help Link: https://github.com/microsoft/PSRule.Rules.GitHub
 Help Version: 0.1.0.0
 Locale: en-US
 ---

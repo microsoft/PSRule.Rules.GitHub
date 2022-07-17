@@ -350,13 +350,6 @@ task Dependencies NuGet, {
     Install-Dependencies -Path $PWD/modules.json;
 }
 
-# Synopsis: Add shipit build tag
-task TagBuild {
-    if ($Null -ne $Env:BUILD_DEFINITIONNAME) {
-        Write-Host "`#`#vso[build.addbuildtag]shipit";
-    }
-}
-
 # Synopsis: Remove temp files.
 task Clean {
     Remove-Item -Path out,reports -Recurse -Force -ErrorAction SilentlyContinue;
@@ -366,7 +359,7 @@ task Build Clean, BuildModule, VersionModule, BuildHelp
 
 task Test Build, Rules, TestDotNet, TestModule
 
-task Release ReleaseModule, TagBuild
+task Release ReleaseModule
 
 # Synopsis: Build and test. Entry point for CI Build stage
 task . Build, Rules, TestDotNet
