@@ -41,5 +41,8 @@
     "omnisharp.enableImportCompletion": true,
     "omnisharp.organizeImportsOnFormat": true,
     "omnisharp.enableEditorConfigSupport": true,
-    "omnisharp.enableRoslynAnalyzers": true
+    "omnisharp.enableRoslynAnalyzers": true,
+    "git.branchProtection": [
+        "main"
+    ]
 }

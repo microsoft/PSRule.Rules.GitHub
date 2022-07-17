@@ -153,6 +153,7 @@ task ModuleDependencies Dependencies, {
 task BuildDotNet {
     exec {
         # Build library
+        # dotnet build src/SDK -c $Configuration -f netstandard2.0 -p:version=$Build
         dotnet publish src/PSRule.Rules.GitHub -c $Configuration -f netstandard2.0 -o $(Join-Path -Path $PWD -ChildPath out/modules/PSRule.Rules.GitHub) -p:version=$Build
     }
 }
