@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <Import Project="..\PSRule.Common.props" />
   <PropertyGroup>
+    <AssemblyName>Microsoft.PSRule.Rules.GitHub.Core</AssemblyName>
     <RootNamespace>PSRule.Rules.GitHub</RootNamespace>
     <LangVersion>8.0</LangVersion>
     <OutputType>Library</OutputType>
@@ -8,6 +9,7 @@
     <DebugType>portable</DebugType>
     <DebugSymbols>true</DebugSymbols>
     <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <PackageId>Microsoft.PSRule.Rules.GitHub.Core</PackageId>
     <EnableNuget>false</EnableNuget>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
