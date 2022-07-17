@@ -68,7 +68,7 @@ jobs:
 
     # STEP 2: Run analysis against exported data
     - name: Analyze repository
-      uses: microsoft/ps-rule@v2.0.0
+      uses: microsoft/ps-rule@v2.2.0
       with:
         modules: 'PSRule.Rules.GitHub'
 ```
@@ -87,11 +87,11 @@ For example:
 # STEP 1: Install PSRule.Rules.GitHub from the PowerShell Gallery
 Install-Module -Name 'PSRule.Rules.GitHub' -Scope CurrentUser;
 
-# STEP 2: Export repository configuration data for Microsoft/PSRule
-Export-GitHubRuleData -Repository 'Microsoft/PSRule';
+# STEP 2: Export repository configuration data for microsoft/PSRule
+Export-GitHubRuleData -Repository 'microsoft/PSRule';
 
 # STEP 3: Run analysis against exported data
-Assert-PSRule -Module 'PSRule.Rules.GitHub' -InputPath '.\*.json' -Format File;
+Assert-PSRule -Module 'PSRule.Rules.GitHub' -InputPath './*.json';
 ```
 
 The `Export-GitHubRuleData` cmdlet exports repository data to JSON.
