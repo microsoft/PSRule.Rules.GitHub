@@ -63,9 +63,9 @@ If you are, then you may have encountered the following challenges.
 
 For a general PSRule/ Pester comparison see [How is PSRule different to Pester?][compare-pester]
 
-[compare-pester]: https://github.com/microsoft/PSRule/blob/main/docs/features.md#how-is-psrule-different-to-pester
-[ignore-rule]: https://github.com/microsoft/PSRule/blob/main/docs/features.md#how-do-i-ignore-a-rule
-[ps-rule-configure]: https://github.com/microsoft/PSRule/blob/main/docs/features.md#how-do-i-configure-psrule
-[ps-rule-faq]: https://github.com/microsoft/PSRule/blob/main/docs/features.md#frequently-asked-questions-faq
+[compare-pester]: https://microsoft.github.io/PSRule/v2/faq/#how-is-psrule-different-to-pester
+[ignore-rule]: https://microsoft.github.io/PSRule/v2/faq/#how-do-i-ignore-a-rule
+[ps-rule-configure]: https://microsoft.github.io/PSRule/v2/faq/#how-do-i-configure-psrule
+[ps-rule-faq]: https://microsoft.github.io/PSRule/v2/faq/
 [extension-pipelines]: https://marketplace.visualstudio.com/items?itemName=bewhite.ps-rule
 [extension-github]: https://github.com/marketplace/actions/psrule

@@ -1,38 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
+  <Import Project="..\PSRule.Common.props" />
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>PSRule.Rules.GitHub</RootNamespace>
     <LangVersion>8.0</LangVersion>
     <OutputType>Library</OutputType>
     <ProjectGuid>{d6140d02-6dff-40bb-a472-3a79af7341fc}</ProjectGuid>
     <DebugType>portable</DebugType>
-    <NeutralLanguage>en-US</NeutralLanguage>
     <DebugSymbols>true</DebugSymbols>
     <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
-    <!-- <TreatWarningsAsErrors>true</TreatWarningsAsErrors> -->
-    <Authors>Bernie White</Authors>
-    <AssemblyTitle>PSRule.Rules.GitHub</AssemblyTitle>
-    <RepositoryUrl>https://github.com/Microsoft/PSRule.Rules.GitHub</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/Microsoft/PSRule.Rules.GitHub</PackageProjectUrl>
-    <PackageLicenseExpression>https://github.com/Microsoft/PSRule.Rules.GitHub/blob/master/LICENSE</PackageLicenseExpression>
-    <Version>0.0.1</Version>
-    <Company>Microsoft Corporation</Company>
-    <Copyright>Copyright (c) Microsoft Corporation. Licensed under the MIT License.</Copyright>
-    <Description>A suite of rules to validate GitHub repositories using PSRule.
-
-This project uses GitHub Issues to track bugs and feature requests. See GitHub project for more information.</Description>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(OS)' == 'Windows_NT'">
-    <DefineConstants>Windows</DefineConstants>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(TF_BUILD)' == 'true'">
-    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
-    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+    <EnableNuget>false</EnableNuget>
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>
