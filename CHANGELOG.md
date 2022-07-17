@@ -7,8 +7,8 @@ What's changed since v0.2.0:
 - Engineering:
   - Bump PSRule to v2.2.0.
     [#123](https://github.com/microsoft/PSRule.Rules.GitHub/pull/123)
-  - Bump Octokit to v0.52.0.
-    [#124](https://github.com/microsoft/PSRule.Rules.GitHub/pull/124)
+  - Bump Octokit to v1.0.0.
+    [#127](https://github.com/microsoft/PSRule.Rules.GitHub/pull/127)
 
 ## v0.2.0
 
