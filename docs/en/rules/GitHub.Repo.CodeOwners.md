@@ -1,7 +1,7 @@
 ---
 category: Repository
 severity: Important
-online version: https://github.com/Microsoft/PSRule.Rules.GitHub/blob/main/docs/rules/en/GitHub.Repo.CodeOwners.md
+online version: https://github.com/microsoft/PSRule.Rules.GitHub/blob/main/docs/en/rules/GitHub.Repo.CodeOwners.md
 ---
 
 # Use a CODEOWNERS file
