@@ -7,8 +7,8 @@ What's changed since v0.2.0:
 - Engineering:
   - Bump PSRule to v2.2.0.
     [#123](https://github.com/microsoft/PSRule.Rules.GitHub/pull/123)
-  - Bump Octokit to v1.0.0.
-    [#127](https://github.com/microsoft/PSRule.Rules.GitHub/pull/127)
+  - Bump Octokit to v1.0.1.
+    [#137](https://github.com/microsoft/PSRule.Rules.GitHub/pull/137)
   - Update packaging for code signing and SBOM by @BernieWhite.
     [#131](https://github.com/microsoft/PSRule.Rules.GitHub/issues/131)
   - Bump xunit to v2.4.2.
