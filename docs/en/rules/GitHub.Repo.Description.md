@@ -1,7 +1,7 @@
 ---
 category: Repository
 severity: Awareness
-online version: https://github.com/Microsoft/PSRule.Rules.GitHub/blob/main/docs/rules/en/GitHub.Repo.Description.md
+online version: https://github.com/microsoft/PSRule.Rules.GitHub/blob/main/docs/en/rules/GitHub.Repo.Description.md
 ---
 
 # Set a repository description

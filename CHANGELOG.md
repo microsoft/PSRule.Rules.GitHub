@@ -5,6 +5,8 @@
 What's changed since v0.2.0:
 
 - Engineering:
+  - Added support for NuGet publishing by @BernieWhite.
+    [#132](https://github.com/microsoft/PSRule.Rules.GitHub/issues/132)
   - Bump PSRule to v2.2.0.
     [#123](https://github.com/microsoft/PSRule.Rules.GitHub/pull/123)
   - Bump Octokit to v1.0.1.

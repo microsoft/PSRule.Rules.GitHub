@@ -1,7 +1,7 @@
 ---
 category: Repository
 severity: Critical
-online version: https://github.com/Microsoft/PSRule.Rules.GitHub/blob/main/docs/rules/en/GitHub.Repo.Protected.md
+online version: https://github.com/microsoft/PSRule.Rules.GitHub/blob/main/docs/en/rules/GitHub.Repo.Protected.md
 ---
 
 # Use branch protection on the default branch

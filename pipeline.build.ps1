@@ -153,7 +153,7 @@ task ModuleDependencies Dependencies, {
 task BuildDotNet {
     exec {
         # Build library
-        # dotnet build src/SDK -c $Configuration -f netstandard2.0 -p:version=$Build
+        dotnet build src/SDK -c $Configuration -f netstandard2.0 -p:version=$Build
         dotnet publish src/PSRule.Rules.GitHub -c $Configuration -f netstandard2.0 -o $(Join-Path -Path $PWD -ChildPath out/modules/PSRule.Rules.GitHub) -p:version=$Build
     }
 }
@@ -299,8 +299,8 @@ task Analyze Build, Dependencies, {
 # Synopsis: Build table of content for rules
 task BuildRuleDocs Build, Dependencies, {
     Import-Module (Join-Path -Path $PWD -ChildPath out/modules/PSRule.Rules.GitHub) -Force;
-    $Null = Invoke-PSDocument -Name module -OutputPath .\docs\rules\en\ -Path .\RuleToc.Doc.ps1;
-    $Null = Invoke-PSDocument -Name resource -OutputPath .\docs\rules\en\ -Path .\RuleToc.Doc.ps1;
+    $Null = Invoke-PSDocument -Name module -OutputPath .\docs\en\rules\ -Path .\RuleToc.Doc.ps1;
+    $Null = Invoke-PSDocument -Name resource -OutputPath .\docs\en\rules\ -Path .\RuleToc.Doc.ps1;
 }
 
 # Synopsis: Build help
@@ -318,7 +318,7 @@ task BuildHelp BuildModule, Dependencies, {
         $Null = New-Item -Path out/modules/PSRule.Rules.GitHub/en-GB/ -ItemType Directory -Force;
     }
 
-    $Null = Copy-Item -Path docs/rules/en/*.md -Destination out/modules/PSRule.Rules.GitHub/en/;
+    $Null = Copy-Item -Path docs/en/rules/*.md -Destination out/modules/PSRule.Rules.GitHub/en/;
 
     # Avoid YamlDotNet issue in same app domain
     exec {

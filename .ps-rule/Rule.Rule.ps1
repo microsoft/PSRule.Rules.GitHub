@@ -6,7 +6,7 @@ Rule 'Rule.Name' -Type 'PSRule.Rules.Rule' {
     Recommend 'Rule name should be less than 35 characters to prevent being truncated.'
     Reason 'The rule name is too long.'
     $Assert.LessOrEqual($TargetObject, 'RuleName', 35)
-    $Assert.StartsWith($TargetObject, 'RuleName', 'GitHub.')
+    $Assert.StartsWith($TargetObject, 'RuleName', "$($Configuration.RULE_AUTHORING_PREFIX).")
 }
 
 # Synopsis: Complete help documentation
