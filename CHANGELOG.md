@@ -11,6 +11,8 @@ What's changed since v0.2.0:
     [#137](https://github.com/microsoft/PSRule.Rules.GitHub/pull/137)
   - Update packaging for code signing and SBOM by @BernieWhite.
     [#131](https://github.com/microsoft/PSRule.Rules.GitHub/issues/131)
+  - Bump xunit to v2.4.2.
+    [#138](https://github.com/microsoft/PSRule.Rules.GitHub/pull/138)
 
 ## v0.2.0
 
