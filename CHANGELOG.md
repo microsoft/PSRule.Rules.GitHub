@@ -2,6 +2,26 @@
 
 ## Unreleased
 
+## v0.3.0
+
+What's changed since v0.2.0:
+
+- Engineering:
+  - Added support for NuGet publishing by @BernieWhite.
+    [#132](https://github.com/microsoft/PSRule.Rules.GitHub/issues/132)
+  - Bump PSRule to v2.2.0.
+    [#123](https://github.com/microsoft/PSRule.Rules.GitHub/pull/123)
+  - Bump Octokit to v1.0.1.
+    [#137](https://github.com/microsoft/PSRule.Rules.GitHub/pull/137)
+  - Update packaging for code signing and SBOM by @BernieWhite.
+    [#131](https://github.com/microsoft/PSRule.Rules.GitHub/issues/131)
+  - Bump xunit to v2.4.2.
+    [#138](https://github.com/microsoft/PSRule.Rules.GitHub/pull/138)
+
+What's changed since pre-release v0.3.0-B0008:
+
+- No additional changes.
+
 ## v0.3.0-B0008 (pre-release)
 
 What's changed since v0.2.0:
