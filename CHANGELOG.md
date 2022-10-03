@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+What's changed since v0.3.0:
+
+- Engineering:
+  - Bump PSRule to v2.4.1.
+    [#142](https://github.com/microsoft/PSRule.Rules.GitHub/pull/142)
+  - Bump PSScriptAnalyzer to v1.21.0.
+    [#142](https://github.com/microsoft/PSRule.Rules.GitHub/pull/142)
+
 ## v0.3.0
 
 What's changed since v0.2.0:
