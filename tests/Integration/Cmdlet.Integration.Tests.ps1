@@ -30,7 +30,8 @@ BeforeAll {
 Describe 'Export-GitHubRuleData' -Tag 'Cmdlet','Export-GitHubRuleData' {
     Context 'With defaults' {
         It 'Exports repository data' {
-            $results = @(Export-GitHubRuleData -OutputPath $outputPath -R Microsoft/PSRule,Microsoft/PSRule.Rules.GitHub);
+            $useToken = $Null -ne $Env:GITHUB_TOKEN;
+            $results = @(Export-GitHubRuleData -UseGitHubToken:$useToken -OutputPath $outputPath -R Microsoft/PSRule,Microsoft/PSRule.Rules.GitHub);
             $results | Should -Not -BeNullOrEmpty;
             $results | Should -BeOfType System.IO.FileInfo;
             $jsonResults = Get-Content -Path $results.FullName -Raw | ConvertFrom-Json;
