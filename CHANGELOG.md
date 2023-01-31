@@ -11,6 +11,8 @@ What's changed since v0.3.0:
     [#166](https://github.com/microsoft/PSRule.Rules.GitHub/pull/166)
   - Bump PSScriptAnalyzer to v1.21.0.
     [#142](https://github.com/microsoft/PSRule.Rules.GitHub/pull/142)
+  - Bump Microsoft.CodeAnalysis.NetAnalyzers to v7.0.0.
+    [#171](https://github.com/microsoft/PSRule.Rules.GitHub/pull/171)
 
 ## v0.3.0
 
