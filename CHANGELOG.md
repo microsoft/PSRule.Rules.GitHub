@@ -13,6 +13,8 @@ What's changed since v0.3.0:
     [#165](https://github.com/microsoft/PSRule.Rules.GitHub/pull/165)
   - Bump PSScriptAnalyzer to v1.21.0.
     [#142](https://github.com/microsoft/PSRule.Rules.GitHub/pull/142)
+  - Bump Microsoft.CodeAnalysis.NetAnalyzers to v7.0.0.
+    [#171](https://github.com/microsoft/PSRule.Rules.GitHub/pull/171)
 - Bug fixes:
   - Fixes forbidden repository protection crashes export by @BernieWhite.
     [#184](https://github.com/microsoft/PSRule.Rules.GitHub/issues/184)
