@@ -7,8 +7,8 @@ What's changed since v0.3.0:
 - Engineering:
   - Bump PSRule to v2.6.0.
     [#158](https://github.com/microsoft/PSRule.Rules.GitHub/pull/158)
-  - Bump Microsoft.NET.Test.Sdk to v17.4.0.
-    [#166](https://github.com/microsoft/PSRule.Rules.GitHub/pull/166)
+  - Bump Microsoft.NET.Test.Sdk to v17.4.1.
+    [#175](https://github.com/microsoft/PSRule.Rules.GitHub/pull/175)
   - Bump PSScriptAnalyzer to v1.21.0.
     [#142](https://github.com/microsoft/PSRule.Rules.GitHub/pull/142)
 - Bug fixes:
