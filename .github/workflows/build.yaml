@@ -28,5 +28,3 @@ jobs:
         . ./.azure-pipelines/pipeline-deps.ps1
         Invoke-Build Build -AssertStyle GitHubActions
         Invoke-Build IntegrationTest -AssertStyle GitHubActions
-
-        Get-Error

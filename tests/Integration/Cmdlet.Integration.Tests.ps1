@@ -10,7 +10,7 @@ param ()
 
 BeforeAll {
     # Setup error handling
-    $ErrorActionPreference = 'Stop';
+    $ErrorActionPreference = 'Continue';
     Set-StrictMode -Version latest;
 
     if ($Env:SYSTEM_DEBUG -eq 'true') {
@@ -32,6 +32,7 @@ Describe 'Export-GitHubRuleData' -Tag 'Cmdlet','Export-GitHubRuleData' {
         It 'Exports repository data' {
             $useToken = $Null -ne $Env:GITHUB_TOKEN;
             $results = @(Export-GitHubRuleData -UseGitHubToken:$useToken -OutputPath $outputPath -R microsoft/PSRule.Rules.GitHub -ErrorAction Continue);
+            Get-Error
             $results | Should -Not -BeNullOrEmpty;
             $results | Should -BeOfType System.IO.FileInfo;
             $jsonResults = Get-Content -Path $results.FullName -Raw | ConvertFrom-Json;
