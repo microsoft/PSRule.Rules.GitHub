@@ -212,6 +212,10 @@ namespace PSRule.Rules.GitHub.Pipeline
                 if (baseException is Octokit.NotFoundException)
                     return null;
 
+                // TODO: Should raise a warning
+                if (baseException is Octokit.ForbiddenException)
+                    return null;
+
                 throw;
             }
         }
@@ -228,6 +232,10 @@ namespace PSRule.Rules.GitHub.Pipeline
             {
                 var baseException = e.GetBaseException();
                 if (baseException is Octokit.NotFoundException)
+                    return null;
+
+                // TODO: Should raise a warning
+                if (baseException is Octokit.ForbiddenException)
                     return null;
 
                 throw;
