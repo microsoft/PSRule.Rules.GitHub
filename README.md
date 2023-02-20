@@ -112,7 +112,7 @@ For advanced usage, see [Assert-PSRule](https://microsoft.github.io/PSRule/v2/co
 
 For a list of rules included in the `PSRule.Rules.GitHub` module see:
 
-- [Rules by category](docs/rules/en/module.md)
+- [Rules by category](docs/en/rules/module.md)
 
 ## Language reference
 
