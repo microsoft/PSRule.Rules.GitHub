@@ -7,10 +7,17 @@ What's changed since v0.3.0:
 - Engineering:
   - Bump PSRule to v2.6.0.
     [#158](https://github.com/microsoft/PSRule.Rules.GitHub/pull/158)
-  - Bump Microsoft.NET.Test.Sdk to v17.4.0.
-    [#166](https://github.com/microsoft/PSRule.Rules.GitHub/pull/166)
+  - Bump Microsoft.NET.Test.Sdk to v17.4.1.
+    [#175](https://github.com/microsoft/PSRule.Rules.GitHub/pull/175)
+  - Bump coverlet.collector to v3.2.0.
+    [#165](https://github.com/microsoft/PSRule.Rules.GitHub/pull/165)
   - Bump PSScriptAnalyzer to v1.21.0.
     [#142](https://github.com/microsoft/PSRule.Rules.GitHub/pull/142)
+  - Bump Microsoft.CodeAnalysis.NetAnalyzers to v7.0.0.
+    [#171](https://github.com/microsoft/PSRule.Rules.GitHub/pull/171)
+- Bug fixes:
+  - Fixes forbidden repository protection crashes export by @BernieWhite.
+    [#184](https://github.com/microsoft/PSRule.Rules.GitHub/issues/184)
 
 ## v0.3.0
 
