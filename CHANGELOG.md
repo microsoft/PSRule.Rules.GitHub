@@ -5,8 +5,10 @@
 What's changed since v0.3.0:
 
 - Engineering:
-  - Bump PSRule to v2.6.0.
-    [#158](https://github.com/microsoft/PSRule.Rules.GitHub/pull/158)
+  - Bump PSRule to v2.7.0.
+    [#177](https://github.com/microsoft/PSRule.Rules.GitHub/pull/177)
+  - Bump Pester to v5.4.0.
+    [#177](https://github.com/microsoft/PSRule.Rules.GitHub/pull/177)
   - Bump Microsoft.NET.Test.Sdk to v17.4.1.
     [#175](https://github.com/microsoft/PSRule.Rules.GitHub/pull/175)
   - Bump coverlet.collector to v3.2.0.
