@@ -28,6 +28,7 @@ jobs:
         . ./.azure-pipelines/pipeline-deps.ps1
         Invoke-Build Build -AssertStyle GitHubActions
 
+        Import-Module out/modules/PSRule.Rules.GitHub
         Export-GitHubRuleData -UseGitHubToken -OutputPath out/test.log -R microsoft/PSRule.Rules.GitHub -ErrorAction Continue
         Get-Error
 
