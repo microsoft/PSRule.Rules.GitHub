@@ -27,4 +27,8 @@ jobs:
       run: |
         . ./.azure-pipelines/pipeline-deps.ps1
         Invoke-Build Build -AssertStyle GitHubActions
+
+        Export-GitHubRuleData -UseGitHubToken -OutputPath out/test.log -R microsoft/PSRule.Rules.GitHub -ErrorAction Continue
+        Get-Error
+
         Invoke-Build IntegrationTest -AssertStyle GitHubActions
