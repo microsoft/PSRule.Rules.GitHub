@@ -11,6 +11,8 @@ What's changed since v0.3.0:
     [#177](https://github.com/microsoft/PSRule.Rules.GitHub/pull/177)
   - Bump Microsoft.NET.Test.Sdk to v17.4.1.
     [#175](https://github.com/microsoft/PSRule.Rules.GitHub/pull/175)
+  - Bump Octokit from 1.0.1 to 5.0.0.
+    [#181](https://github.com/microsoft/PSRule.Rules.GitHub/pull/181)
   - Bump coverlet.collector to v3.2.0.
     [#165](https://github.com/microsoft/PSRule.Rules.GitHub/pull/165)
   - Bump PSScriptAnalyzer to v1.21.0.
