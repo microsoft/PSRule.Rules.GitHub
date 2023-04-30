@@ -7,6 +7,8 @@ What's changed since pre-release v0.4.0-B0016:
 - Engineering:
   - Bump Octokit to 5.0.4.
     [#199](https://github.com/microsoft/PSRule.Rules.GitHub/pull/199)
+  - Bump Microsoft.NET.Test.Sdk to v17.5.0.
+    [#189](https://github.com/microsoft/PSRule.Rules.GitHub/pull/189)
 
 ## v0.4.0-B0016 (pre-release)
 
