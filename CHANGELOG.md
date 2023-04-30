@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+What's changed since pre-release v0.4.0-B0016:
+
+- Engineering:
+  - Bump Octokit to 5.0.4.
+    [#199](https://github.com/microsoft/PSRule.Rules.GitHub/pull/199)
+
 ## v0.4.0-B0016 (pre-release)
 
 What's changed since v0.3.0:
@@ -13,7 +19,7 @@ What's changed since v0.3.0:
     [#177](https://github.com/microsoft/PSRule.Rules.GitHub/pull/177)
   - Bump Microsoft.NET.Test.Sdk to v17.4.1.
     [#175](https://github.com/microsoft/PSRule.Rules.GitHub/pull/175)
-  - Bump Octokit from 1.0.1 to 5.0.0.
+  - Bump Octokit to 5.0.0.
     [#181](https://github.com/microsoft/PSRule.Rules.GitHub/pull/181)
   - Bump coverlet.collector to v3.2.0.
     [#165](https://github.com/microsoft/PSRule.Rules.GitHub/pull/165)
