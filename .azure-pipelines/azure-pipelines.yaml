@@ -138,80 +138,28 @@ stages:
 
   - template: jobs/test.yaml
     parameters:
-      name: ubuntu_20_04_coverage
-      imageName: 'ubuntu-20.04'
+      name: ubuntu_22_04_coverage
+      imageName: 'ubuntu-22.04'
       displayName: 'PowerShell coverage'
       coverage: 'true'
       publishResults: 'false'
 
   - template: jobs/test.yaml
     parameters:
-      name: macOS_10_15
-      displayName: 'PowerShell 7.1 - macOS-10.15'
-      imageName: 'macOS-10.15'
+      name: macOS_11
+      displayName: 'PowerShell 7.1 - macOS-11'
+      imageName: 'macOS-11'
 
   - template: jobs/test.yaml
     parameters:
-      name: windows_2019
-      displayName: 'PowerShell 7.1 - Windows 2019'
-      imageName: 'windows-2019'
+      name: windows_2022
+      displayName: 'PowerShell 7.1 - Windows 2022'
+      imageName: 'windows-2022'
       pwsh: 'false'
 
   - template: jobs/testContainer.yaml
     parameters:
-      name: ps_7_2_ubuntu_18_04
-      displayName: 'PowerShell 7.2 - ubuntu-18.04'
+      name: ps_7_3_ubuntu_22_04
+      displayName: 'PowerShell 7.3 - ubuntu-22.04'
       imageName: mcr.microsoft.com/powershell
-      imageTag: 7.2.2-ubuntu-18.04
-
-  - template: jobs/testContainer.yaml
-    parameters:
-      name: ps_7_2_ubuntu_20_04
-      displayName: 'PowerShell 7.2 - ubuntu-20.04'
-      imageName: mcr.microsoft.com/powershell
-      imageTag: 7.2.2-ubuntu-20.04
-
-# Release pipeline
-# - stage: Release
-#   displayName: Release
-#   dependsOn: [ 'Test', 'Analysis' ]
-#   condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/v0.'))
-#   variables:
-#     skipComponentGovernanceDetection: 'true'
-#   jobs:
-#   - job:
-#     displayName: Live
-#     pool:
-#       vmImage: $(imageName)
-#     variables:
-#       isPreRelease: $[contains(variables['Build.SourceBranchName'], '-B')]
-#     steps:
-
-#     # Download module from build
-#     - task: DownloadPipelineArtifact@2
-#       displayName: 'Download module'
-#       inputs:
-#         artifact: PSRule.Rules.GitHub
-#         path: $(Build.SourcesDirectory)/out/modules/PSRule.Rules.GitHub
-
-#     # Install pipeline dependencies
-#     - powershell: ./.azure-pipelines/pipeline-deps.ps1
-#       displayName: 'Install dependencies'
-
-#     # Install pipeline dependencies and build module
-#     - powershell: Invoke-Build Release -ApiKey $(apiKey)
-#       displayName: 'Publish module'
-
-#     # Update GitHub release
-#     - task: GitHubRelease@1
-#       displayName: 'GitHub release'
-#       inputs:
-#         gitHubConnection: 'AzureDevOps-PSRule.Rules.GitHub'
-#         repositoryName: '$(Build.Repository.Name)'
-#         action: edit
-#         tag: '$(Build.SourceBranchName)'
-#         releaseNotesSource: inline
-#         releaseNotesInline: 'See [change log](https://github.com/microsoft/PSRule.Rules.GitHub/blob/main/CHANGELOG.md)'
-#         assetUploadMode: replace
-#         addChangeLog: false
-#         isPreRelease: $(isPreRelease)
+      imageTag: 7.3-ubuntu-22.04
