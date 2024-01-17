@@ -267,11 +267,12 @@ task IntegrationTest ModuleDependencies, {
 # Synopsis: Run validation
 task Rules Dependencies, {
     $assertParams = @{
-        Path = './.ps-rule/'
-        Style = $AssertStyle
+        Path         = './.ps-rule/'
+        Style        = $AssertStyle
         OutputFormat = 'NUnit3'
-        ErrorAction = 'Stop'
-        As = 'Summary'
+        ErrorAction  = 'Stop'
+        As           = 'Summary'
+        Outcome      = 'Problem'
     }
     Import-Module (Join-Path -Path $PWD -ChildPath out/modules/PSRule.Rules.GitHub) -Force;
     Assert-PSRule @assertParams -InputPath $PWD -Module PSRule.Rules.MSFT.OSS -Format File -OutputPath reports/ps-rule-file.xml;
