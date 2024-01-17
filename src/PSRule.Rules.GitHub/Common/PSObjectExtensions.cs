@@ -3,13 +3,12 @@
 
 using System.Management.Automation;
 
-namespace PSRule.Rules.GitHub
+namespace PSRule.Rules.GitHub;
+
+internal static class PSObjectExtensions
 {
-    internal static class PSObjectExtensions
+    internal static T GetPropertyValue<T>(this PSObject obj, string propertyName)
     {
-        internal static T GetPropertyValue<T>(this PSObject obj, string propertyName)
-        {
-            return (T)obj.Properties[propertyName].Value;
-        }
+        return (T)obj.Properties[propertyName].Value;
     }
 }

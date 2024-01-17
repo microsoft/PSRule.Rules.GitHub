@@ -4,21 +4,20 @@
 using Newtonsoft.Json;
 using PSRule.Rules.GitHub.Configuration;
 
-namespace PSRule.Rules.GitHub.Pipeline.Output
-{
-    internal sealed class JsonOutputWriter : SerializationOutputWriter<object>
-    {
-        internal JsonOutputWriter(PipelineWriter inner, PSRuleOption option)
-            : base(inner, option) { }
+namespace PSRule.Rules.GitHub.Pipeline.Output;
 
-        protected override string Serialize(object[] o)
+internal sealed class JsonOutputWriter : SerializationOutputWriter<object>
+{
+    internal JsonOutputWriter(PipelineWriter inner, PSRuleOption option)
+        : base(inner, option) { }
+
+    protected override string Serialize(object[] o)
+    {
+        var settings = new JsonSerializerSettings
         {
-            var settings = new JsonSerializerSettings
-            {
-                NullValueHandling = NullValueHandling.Ignore
-            };
-            settings.Converters.Add(new PSObjectJsonConverter());
-            return JsonConvert.SerializeObject(o, settings: settings);
-        }
+            NullValueHandling = NullValueHandling.Ignore
+        };
+        settings.Converters.Add(new PSObjectJsonConverter());
+        return JsonConvert.SerializeObject(o, settings: settings);
     }
 }

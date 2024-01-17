@@ -1,48 +1,59 @@
 {
-    "files.exclude": {
-        "reports/": true,
-        "out/": true,
-        ".vs/": true,
-        "**/bin/": true,
-        "**/obj/": true
-    },
-    "search.exclude": {
-        "out/": true
-    },
-    "editor.insertSpaces": true,
+  "files.exclude": {
+    "reports/": true,
+    "out/": true,
+    ".vs/": true,
+    "**/bin/": true,
+    "**/obj/": true,
+    ".venv/": true
+  },
+  "search.exclude": {
+    "out/": true
+  },
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "editor.formatOnSave": true,
+  "editor.detectIndentation": false,
+  "files.insertFinalNewline": true,
+  "yaml.format.singleQuote": true,
+  "[markdown]": {
+    "editor.formatOnSave": false
+  },
+  "[csharp]": {
     "editor.tabSize": 4,
-    "[yaml]": {
-        "editor.tabSize": 2
-    },
-    "[markdown]": {
-        "editor.tabSize": 2
-    },
-    "files.associations": {
-        "**/.azure-pipelines/*.yaml": "azure-pipelines",
-        "**/.azure-pipelines/jobs/*.yaml": "azure-pipelines"
-    },
-    "cSpell.words": [
-        "Octokit",
-        "cmdlets"
-    ],
-    "cSpell.enabledLanguageIds": [
-        "csharp",
-        "git-commit", 
-        "markdown",
-        "plaintext",
-        "powershell",
-        "text",
-        "yaml",
-        "yml"
-    ],
-    "[csharp]": {
-        "editor.formatOnSave": true
-    },
-    "omnisharp.enableImportCompletion": true,
-    "omnisharp.organizeImportsOnFormat": true,
-    "omnisharp.enableEditorConfigSupport": true,
-    "omnisharp.enableRoslynAnalyzers": true,
-    "git.branchProtection": [
-        "main"
-    ]
+  },
+  "[yaml]": {
+    "editor.formatOnSave": false
+  },
+  "[powershell]": {
+    "editor.tabSize": 4,
+    "editor.formatOnSave": false
+  },
+  "[html]": {
+    "editor.formatOnSave": false
+  },
+  "files.associations": {
+    "**/CODEOWNERS": "text"
+  },
+  "cSpell.words": [
+    "Octokit",
+    "cmdlets"
+  ],
+  "cSpell.enabledLanguageIds": [
+    "csharp",
+    "git-commit",
+    "markdown",
+    "plaintext",
+    "powershell",
+    "text",
+    "yaml",
+    "yml"
+  ],
+  "omnisharp.organizeImportsOnFormat": true,
+  "omnisharp.enableEditorConfigSupport": true,
+  "git.branchProtection": [
+    "main",
+    "release/*"
+  ],
+  "dotnet.completion.showCompletionItemsFromUnimportedNamespaces": true
 }

@@ -159,18 +159,7 @@ task BuildDotNet {
 }
 
 task TestDotNet {
-    if ($CodeCoverage) {
-        exec {
-            # Test library
-            dotnet test --collect:"Code Coverage" --logger trx -r (Join-Path $PWD -ChildPath reports/) tests/PSRule.Rules.GitHub.Tests
-        }
-    }
-    else {
-        exec {
-            # Test library
-            dotnet test --logger trx -r (Join-Path $PWD -ChildPath reports/) tests/PSRule.Rules.GitHub.Tests
-        }
-    }
+    dotnet test
 }
 
 task CopyModule {
@@ -278,17 +267,18 @@ task IntegrationTest ModuleDependencies, {
 # Synopsis: Run validation
 task Rules Dependencies, {
     $assertParams = @{
-        Path = './.ps-rule/'
-        Style = $AssertStyle
+        Path         = './.ps-rule/'
+        Style        = $AssertStyle
         OutputFormat = 'NUnit3'
-        ErrorAction = 'Stop'
-        As = 'Summary'
+        ErrorAction  = 'Stop'
+        As           = 'Summary'
+        Outcome      = 'Problem'
     }
     Import-Module (Join-Path -Path $PWD -ChildPath out/modules/PSRule.Rules.GitHub) -Force;
-    Assert-PSRule @assertParams -InputPath $PWD -Module PSRule.Rules.MSFT.OSS -Format File -OutputPath reports/ps-rule-file.xml;
+    Assert-PSRule @assertParams -InputPath $PWD -Module PSRule.Rules.MSFT.OSS -Format File -OutputPath ./reports/ps-rule-file.xml;
 
     $rules = Get-PSRule -Module PSRule.Rules.GitHub;
-    $rules | Assert-PSRule @assertParams -OutputPath reports/ps-rule-file2.xml;
+    $rules | Assert-PSRule @assertParams -OutputPath ./reports/ps-rule-file2.xml;
 }
 
 # Synopsis: Run script analyzer

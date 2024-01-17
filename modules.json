@@ -1,12 +1,12 @@
 {
   "dependencies": {
     "PSRule": {
-      "version": "2.7.0"
+      "version": "2.9.0"
     }
   },
   "devDependencies": {
     "Pester": {
-      "version": "5.4.0"
+      "version": "5.4.1"
     },
     "platyPS": {
       "version": "0.14.2"
@@ -16,6 +16,9 @@
     },
     "PSScriptAnalyzer": {
       "version": "1.21.0"
+    },
+    "PSRule.Rules.MSFT.OSS": {
+      "version": "1.1.0"
     }
   }
 }

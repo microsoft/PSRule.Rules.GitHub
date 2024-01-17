@@ -6,11 +6,13 @@
 # https://microsoft.github.io/PSRule/
 
 requires:
-  PSRule: '@pre >=2.2.0'
+  PSRule: '@pre >=2.9.0'
 
 input:
   pathIgnore:
   - '.vscode/'
+  - '.github/workflows/'
+  - 'docs/examples*.json'
   - '*.md'
   - '*.Designer.cs'
   - '*.resx'
@@ -18,6 +20,14 @@ input:
   - '*.txt'
   - '*.html'
   - '*.ico'
+  - '*.png'
+  - 'ps-docs.yaml'
+  - 'ps-project.yaml'
+  - 'ps-rule.yaml'
+  - 'mkdocs.yml'
+  - '**/.editorconfig'
+  - '.markdownlint.json'
+  - '.github/dependabot.yml'
 
 include:
   path: []
