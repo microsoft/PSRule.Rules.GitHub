@@ -11,6 +11,8 @@ What's changed since pre-release v0.4.0-B0016:
     [#202](https://github.com/microsoft/PSRule.Rules.GitHub/pull/202)
   - Bump Microsoft.NET.Test.Sdk to v17.8.0.
     [#225](https://github.com/microsoft/PSRule.Rules.GitHub/pull/225)
+  - Bump Microsoft.CodeAnalysis.NetAnalyzers to v8.0.0.
+    [#224](https://github.com/microsoft/PSRule.Rules.GitHub/pull/224)
 
 ## v0.4.0-B0016 (pre-release)
 
