@@ -20,6 +20,7 @@ input:
   - '*.txt'
   - '*.html'
   - '*.ico'
+  - '*.png'
   - 'ps-docs.yaml'
   - 'ps-project.yaml'
   - 'ps-rule.yaml'

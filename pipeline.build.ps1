@@ -275,10 +275,10 @@ task Rules Dependencies, {
         Outcome      = 'Problem'
     }
     Import-Module (Join-Path -Path $PWD -ChildPath out/modules/PSRule.Rules.GitHub) -Force;
-    Assert-PSRule @assertParams -InputPath $PWD -Module PSRule.Rules.MSFT.OSS -Format File -OutputPath reports/ps-rule-file.xml;
+    Assert-PSRule @assertParams -InputPath $PWD -Module PSRule.Rules.MSFT.OSS -Format File -OutputPath ./reports/ps-rule-file.xml;
 
     $rules = Get-PSRule -Module PSRule.Rules.GitHub;
-    $rules | Assert-PSRule @assertParams -OutputPath reports/ps-rule-file2.xml;
+    $rules | Assert-PSRule @assertParams -OutputPath ./reports/ps-rule-file2.xml;
 }
 
 # Synopsis: Run script analyzer
