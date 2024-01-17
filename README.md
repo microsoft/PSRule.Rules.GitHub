@@ -64,11 +64,11 @@ jobs:
     steps:
 
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     # STEP 2: Run analysis against exported data
     - name: Analyze repository
-      uses: microsoft/ps-rule@v2.2.0
+      uses: microsoft/ps-rule@v2.9.0
       with:
         modules: 'PSRule.Rules.GitHub'
 ```

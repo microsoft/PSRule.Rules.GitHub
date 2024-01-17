@@ -3,7 +3,8 @@
   <!-- Project defaults -->
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <LangVersion>9.0</LangVersion>
+    <LangVersion>12.0</LangVersion>
+    <!-- <Nullable>enable</Nullable> -->
     <NeutralLanguage>en-US</NeutralLanguage>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>portable</DebugType>
