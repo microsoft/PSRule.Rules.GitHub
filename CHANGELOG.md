@@ -15,6 +15,8 @@ What's changed since pre-release v0.4.0-B0016:
     [#225](https://github.com/microsoft/PSRule.Rules.GitHub/pull/225)
   - Bump Microsoft.CodeAnalysis.NetAnalyzers to v8.0.0.
     [#224](https://github.com/microsoft/PSRule.Rules.GitHub/pull/224)
+  - Bump Microsoft.SourceLink.GitHub to v8.0.0.
+    [#232](https://github.com/microsoft/PSRule.Rules.GitHub/pull/232)
   - Bump coverlet.collector to v6.0.0.
     [#204](https://github.com/microsoft/PSRule.Rules.GitHub/pull/204)
   - Bump xunit.runner.visualstudio to v2.5.6.
