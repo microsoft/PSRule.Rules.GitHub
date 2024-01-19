@@ -9,6 +9,8 @@ What's changed since pre-release v0.4.0-B0016:
     [#231](https://github.com/microsoft/PSRule.Rules.GitHub/pull/231)
   - Bump Octokit to v9.1.0.
     [#230](https://github.com/microsoft/PSRule.Rules.GitHub/pull/230)
+  - Bump YamlDotNet to v13.7.1.
+    [#234](https://github.com/microsoft/PSRule.Rules.GitHub/pull/234)
   - Bump Microsoft.NET.Test.Sdk to v17.8.0.
     [#225](https://github.com/microsoft/PSRule.Rules.GitHub/pull/225)
   - Bump Microsoft.CodeAnalysis.NetAnalyzers to v8.0.0.
