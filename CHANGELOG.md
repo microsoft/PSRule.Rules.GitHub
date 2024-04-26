@@ -17,8 +17,8 @@ What's changed since pre-release v0.4.0-B0016:
     [#224](https://github.com/microsoft/PSRule.Rules.GitHub/pull/224)
   - Bump Microsoft.SourceLink.GitHub to v8.0.0.
     [#232](https://github.com/microsoft/PSRule.Rules.GitHub/pull/232)
-  - Bump coverlet.collector to v6.0.0.
-    [#204](https://github.com/microsoft/PSRule.Rules.GitHub/pull/204)
+  - Bump coverlet.collector to v6.0.2.
+    [#249](https://github.com/microsoft/PSRule.Rules.GitHub/pull/249)
   - Bump xunit to v2.7.1.
     [#246](https://github.com/microsoft/PSRule.Rules.GitHub/pull/246)
   - Bump xunit.runner.visualstudio to v2.5.6.
