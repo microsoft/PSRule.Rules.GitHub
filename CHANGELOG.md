@@ -21,8 +21,8 @@ What's changed since pre-release v0.4.0-B0016:
     [#249](https://github.com/microsoft/PSRule.Rules.GitHub/pull/249)
   - Bump xunit to v2.7.1.
     [#246](https://github.com/microsoft/PSRule.Rules.GitHub/pull/246)
-  - Bump xunit.runner.visualstudio to v2.5.8.
-    [#245](https://github.com/microsoft/PSRule.Rules.GitHub/pull/245)
+  - Bump xunit.runner.visualstudio to v2.8.2.
+    [#262](https://github.com/microsoft/PSRule.Rules.GitHub/pull/262)
 
 ## v0.4.0-B0016 (pre-release)
 
