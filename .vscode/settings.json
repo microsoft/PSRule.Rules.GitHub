@@ -32,6 +32,9 @@
   "[html]": {
     "editor.formatOnSave": false
   },
+  "[xml]": {
+    "editor.formatOnSave": false
+  },
   "files.associations": {
     "**/CODEOWNERS": "text"
   },
