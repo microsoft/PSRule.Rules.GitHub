@@ -11,8 +11,8 @@ What's changed since pre-release v0.4.0-B0016:
     [#261](https://github.com/microsoft/PSRule.Rules.GitHub/pull/261)
   - Bump YamlDotNet to v13.7.1.
     [#234](https://github.com/microsoft/PSRule.Rules.GitHub/pull/234)
-  - Bump Microsoft.NET.Test.Sdk to v17.9.0.
-    [#239](https://github.com/microsoft/PSRule.Rules.GitHub/pull/239)
+  - Bump Microsoft.NET.Test.Sdk to v17.10.0.
+    [#254](https://github.com/microsoft/PSRule.Rules.GitHub/pull/254)
   - Bump Microsoft.CodeAnalysis.NetAnalyzers to v8.0.0.
     [#224](https://github.com/microsoft/PSRule.Rules.GitHub/pull/224)
   - Bump Microsoft.SourceLink.GitHub to v8.0.0.
@@ -23,6 +23,12 @@ What's changed since pre-release v0.4.0-B0016:
     [#246](https://github.com/microsoft/PSRule.Rules.GitHub/pull/246)
   - Bump xunit.runner.visualstudio to v2.8.2.
     [#262](https://github.com/microsoft/PSRule.Rules.GitHub/pull/262)
+  - Bump Microsoft.PowerShell.SDK to v7.4.3.
+    [#264](https://github.com/microsoft/PSRule.Rules.GitHub/pull/264)
+  - Bump System.Management.Automation to v7.4.3.
+    [#264](https://github.com/microsoft/PSRule.Rules.GitHub/pull/264)
+  - Bump Newtonsoft.Json to v13.0.3.
+    [#264](https://github.com/microsoft/PSRule.Rules.GitHub/pull/264)
 
 ## v0.4.0-B0016 (pre-release)
 
