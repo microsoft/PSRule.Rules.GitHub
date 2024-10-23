@@ -7,25 +7,28 @@
 
 version: 2
 updates:
+  # Maintain dependencies for GitHub Actions
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'daily'
+    labels:
+      - 'ci-quality'
+    reviewers:
+      - 'microsoft/psrule-rules-github'
 
-# Maintain dependencies for GitHub Actions
-- package-ecosystem: 'github-actions'
-  directory: '/'
-  schedule:
-    interval: 'daily'
-  labels:
-  - 'ci-quality'
-  reviewers:
-  - 'microsoft/psrule-rules-github'
-
-# Maintain dependencies for NuGet
-- package-ecosystem: 'nuget'
-  directory: '/'
-  schedule:
-    interval: 'daily'
-  labels:
-  - 'dependencies'
-  reviewers:
-  - 'microsoft/psrule-rules-github'
-  ignore:
-  - dependency-name: Newtonsoft.Json
+  # Maintain dependencies for NuGet
+  - package-ecosystem: 'nuget'
+    directory: '/'
+    schedule:
+      interval: 'daily'
+    labels:
+      - 'dependencies'
+    reviewers:
+      - 'microsoft/psrule-rules-github'
+    groups:
+      # Group PowerShell packages that have inter-dependencies
+      dev-powershell:
+        patterns:
+          - System.Management.Automation
+          - Microsoft.PowerShell.SDK
