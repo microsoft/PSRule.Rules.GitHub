@@ -8,27 +8,29 @@
 version: 2
 updates:
   # Maintain dependencies for GitHub Actions
-  - package-ecosystem: 'github-actions'
+  - package-ecosystem: github-actions
     directory: '/'
     schedule:
-      interval: 'daily'
+      interval: daily
     labels:
-      - 'ci-quality'
+      - ci-quality
     reviewers:
-      - 'microsoft/psrule-rules-github'
+      - microsoft/psrule-rules-github
 
   # Maintain dependencies for NuGet
-  - package-ecosystem: 'nuget'
+  - package-ecosystem: nuget
     directory: '/'
     schedule:
-      interval: 'daily'
+      interval: daily
     labels:
-      - 'dependencies'
+      - dependencies
     reviewers:
-      - 'microsoft/psrule-rules-github'
+      - microsoft/psrule-rules-github
     groups:
       # Group PowerShell packages that have inter-dependencies
       dev-powershell:
         patterns:
           - System.Management.Automation
           - Microsoft.PowerShell.SDK
+    ignore:
+      - dependency-name: gitversion.tool
