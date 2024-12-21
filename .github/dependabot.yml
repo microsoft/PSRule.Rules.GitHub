@@ -32,5 +32,11 @@ updates:
         patterns:
           - System.Management.Automation
           - Microsoft.PowerShell.SDK
+      dev-testing:
+        patterns:
+          - xunit
+          - xunit.runner.visualstudio
+          - coverlet.collector
+          - Microsoft.NET.Test.Sdk
     ignore:
       - dependency-name: gitversion.tool
