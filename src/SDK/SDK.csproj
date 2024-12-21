@@ -1,5 +1,4 @@
 <Project Sdk="Microsoft.NET.Sdk">
-  <Import Project="..\PSRule.Common.props" />
   <PropertyGroup>
     <PackageId>Microsoft.PSRule.Rules.GitHub</PackageId>
     <ProjectGuid>cf95c5d3-c49a-4af1-9c3c-e9515126868e</ProjectGuid>
@@ -39,8 +38,4 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
   </ItemGroup>
-
-  <!-- <ItemGroup>
-    <PackageReference Include="Microsoft.PSRule.SDK" Version="2.3.0-B0001" />
-  </ItemGroup> -->
 </Project>

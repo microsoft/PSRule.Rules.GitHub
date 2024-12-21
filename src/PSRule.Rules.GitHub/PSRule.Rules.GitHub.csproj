@@ -1,5 +1,4 @@
 <Project Sdk="Microsoft.NET.Sdk">
-  <Import Project="..\PSRule.Common.props" />
   <PropertyGroup>
     <AssemblyName>Microsoft.PSRule.Rules.GitHub.Core</AssemblyName>
     <RootNamespace>PSRule.Rules.GitHub</RootNamespace>
@@ -13,7 +12,7 @@
 
   <ItemGroup>
     <PackageReference Include="Octokit" Version="13.0.1" />
-    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="8.0.0">
+    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="9.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
