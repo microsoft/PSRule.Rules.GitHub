@@ -43,8 +43,8 @@
       },
       "Octokit": {
         "type": "Transitive",
-        "resolved": "13.0.1",
-        "contentHash": "tjXTa2FXzbd3n17VWpi8UXe05EIJqHcWJW8C2kukftIve00duWiZL8x4i1vlZQ0zQ4RbRANbRc7J5K7Co/1spQ=="
+        "resolved": "14.0.0",
+        "contentHash": "jGOuTH1l+TCpJH+fwYOp7USzHDuGfN1jKbLz3J2COwyn+wL08eynvpnM6rY2qkzIEXum3PN2p2QkP3BW/p9Qcw=="
       },
       "YamlDotNet": {
         "type": "Transitive",
@@ -55,7 +55,7 @@
         "type": "Project",
         "dependencies": {
           "Newtonsoft.Json": "[13.0.3, )",
-          "Octokit": "[13.0.1, )",
+          "Octokit": "[14.0.0, )",
           "YamlDotNet": "[13.7.1, )"
         }
       }
