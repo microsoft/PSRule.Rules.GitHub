@@ -16,6 +16,8 @@ updates:
       - ci-quality
     reviewers:
       - microsoft/psrule-rules-github
+    cooldown:
+      default-days: 7
   # Maintain dependencies for NuGet
   - package-ecosystem: nuget
     directory: '/'
